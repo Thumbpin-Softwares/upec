@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--ink);
   background: var(--white);
   line-height: 1.65;
@@ -39,7 +39,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Poppins', 'Inter', sans-serif;
+  font-family: var(--font-poppins), var(--font-inter), sans-serif;
   color: var(--navy-800);
   line-height: 1.25;
   margin: 0 0 .5em;
@@ -133,7 +133,7 @@ ul { padding: 0; margin: 0; list-style: none; }
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand img { height: 40px; width: auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-.brand-text strong { color: var(--white); font-family: 'Poppins', sans-serif; font-size: 1rem; letter-spacing: .02em; }
+.brand-text strong { color: var(--white); font-family: var(--font-poppins), sans-serif; font-size: 1rem; letter-spacing: .02em; }
 .brand-text span { color: var(--cyan-400); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
 
 .nav {
@@ -223,7 +223,7 @@ ul { padding: 0; margin: 0; list-style: none; }
 .hero-inner { position: relative; z-index: 2; max-width: 680px; }
 .hero p.lead { color: #d7e5f2; font-size: 1.12rem; max-width: 560px; }
 .hero-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
-.hero-tagline { font-family: 'Poppins'; font-style: italic; color: var(--cyan-400); font-size: 1.15rem; margin-bottom: 6px; }
+.hero-tagline { font-family: var(--font-poppins); font-style: italic; color: var(--cyan-400); font-size: 1.15rem; margin-bottom: 6px; }
 
 /* Page header (inner pages) */
 .page-header {
@@ -256,7 +256,7 @@ ul { padding: 0; margin: 0; list-style: none; }
   border-bottom: 3px solid var(--cyan-500);
 }
 .stat-card .num {
-  font-family: 'Poppins';
+  font-family: var(--font-poppins);
   font-weight: 700;
   font-size: 2.1rem;
   color: var(--navy-800);
@@ -382,7 +382,7 @@ ul { padding: 0; margin: 0; list-style: none; }
   border-radius: 10px;
   background: var(--navy-800);
   color: var(--cyan-400);
-  font-family: 'Poppins';
+  font-family: var(--font-poppins);
   font-weight: 700;
   font-size: 1.2rem;
   display: flex;
@@ -401,7 +401,7 @@ ul { padding: 0; margin: 0; list-style: none; }
   border: 1px solid var(--grey-200);
   border-radius: 8px;
   padding: 18px 10px;
-  font-family: 'Poppins';
+  font-family: var(--font-poppins);
   font-weight: 700;
   color: var(--navy-800);
   font-size: .98rem;
