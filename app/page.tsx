@@ -1,12 +1,39 @@
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import Stats from "@/components/Stats";
-import { btn, Card, ClientStrip, container, CtaBanner, Eyebrow, ProductCard, Section, SectionHead } from "@/components/ui";
-import { CircleCheckBig, Layers, Settings, Truck } from "lucide-react";
+import { btn, cardSurface, ClientStrip, container, CtaBanner, Eyebrow, IconBadge, ProductCard, Section, SectionHead } from "@/components/ui";
+import { Check, CircleCheckBig, Layers, Settings, Truck } from "lucide-react";
 
 const HERO_IMAGES = [
   "/assets/img/photos/shop-floor-cnc.jpg",
   "/assets/img/photos/shop-floor-edm.jpg",
+];
+
+const PROCESS = [
+  {
+    icon: <Layers />,
+    title: "Design & Engineering",
+    summary: "Turning part concepts into manufacturable, simulation-backed tool designs.",
+    points: ["Concept creation & CAD modelling", "Design optimisation", "Reverse engineering", "CAE & flow simulation"],
+  },
+  {
+    icon: <Settings />,
+    title: "Tooling Development",
+    summary: "In-house tool build, from feasibility to finished mold.",
+    points: ["Tool design & manufacturing feasibility", "Gauges & fixtures", "Full tool manufacturing", "30T\u20131300T press capability"],
+  },
+  {
+    icon: <CircleCheckBig />,
+    title: "Trials & Quality",
+    summary: "Every tool is proven on the press before it ships.",
+    points: ["Batch production runs", "Performance testing", "Trials & observation recording", "Corrective action plans"],
+  },
+  {
+    icon: <Truck />,
+    title: "Delivery & Support",
+    summary: "Transparent tracking right through to delivery readiness.",
+    points: ["Weekly progression updates with pictures", "Part submission with reports", "Issue resolution", "Delivery readiness sign-off"],
+  },
 ];
 
 const PRODUCTS = [
@@ -39,7 +66,7 @@ export default function Home() {
             </p>
             <div className="mt-7.5 flex flex-wrap justify-center gap-3.5 max-md:mx-auto max-md:max-w-xs max-md:flex-col max-md:items-stretch">
               <Link href="/what-we-do" className={`${btn("primary")} max-md:whitespace-normal`}>
-                Explore Capabilities
+                Explore Products
               </Link>
               <Link href="/contact" className={`${btn("outline")} max-md:whitespace-normal`}>
                 Get In Touch
@@ -53,9 +80,9 @@ export default function Home() {
         <Stats
           stats={[
             { count: 170, suffix: "+", label: "Team Members" },
-            { count: 8000, suffix: "+", label: "Sqm Shop Area" },
+            { count: 8000, suffix: "+", label: "Sqm Facility Area" },
             { count: 4000, suffix: "+", label: "Molds Delivered" },
-            { text: "30T–1300T", label: "Press Size Capability" },
+            { text: "30T–1300T", label: "Press Size" },
           ]}
         />
       </div>
@@ -95,23 +122,25 @@ export default function Home() {
           From contract review to part submission, every project runs through a controlled,
           weekly-tracked process engineered to exceed customer expectations.
         </SectionHead>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-4">
-          <Card icon={<Layers />} title="Design & Engineering">
-            Concept creation, CAD modelling, design optimisation, reverse engineering and CAE / flow
-            simulation.
-          </Card>
-          <Card icon={<Settings />} title="Tooling Development">
-            Tool design, manufacturing feasibility, gauges &amp; fixtures, and full tool
-            manufacturing on 30T&ndash;1300T presses.
-          </Card>
-          <Card icon={<CircleCheckBig />} title="Trials & Quality">
-            Batch production, performance testing, trials, observation recording and corrective
-            action plans.
-          </Card>
-          <Card icon={<Truck />} title="Delivery & Support">
-            Weekly progression updates, part submission with reports, and resolution through
-            delivery readiness.
-          </Card>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+          {PROCESS.map((step, i) => (
+            <div key={step.title} className={`reveal relative ${cardSurface} p-7 md:p-9`}>
+              <span className="absolute top-6 right-7 text-4xl font-bold text-grey-200 md:top-8 md:right-9 md:text-5xl">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <IconBadge>{step.icon}</IconBadge>
+              <h3 className="mt-5 mb-2 text-[1.35rem]">{step.title}</h3>
+              <p className="mb-5 text-[.95rem]">{step.summary}</p>
+              <ul className="space-y-2.5 border-t border-grey-200 pt-5">
+                {step.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-[.95rem] text-ink">
+                    <Check className="mt-1 size-4 flex-none text-cyan-500" strokeWidth={3} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
         <div className="mt-9 text-center">
           <Link href="/what-we-do" className={btn("dark")}>See Our Full Process</Link>

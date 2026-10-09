@@ -16,8 +16,10 @@ const btnVariants = {
 
 export const btn = (variant: keyof typeof btnVariants) => `${btnBase} ${btnVariants[variant]}`;
 
-export const cardClass =
-  "h-full rounded-card border border-grey-200 bg-white px-6.5 py-7.5 transition-[translate,box-shadow,border-color] hover:-translate-y-1.5 hover:border-transparent hover:shadow-md";
+export const cardSurface =
+  "h-full rounded-card border border-grey-200 bg-white transition-[translate,box-shadow,border-color] hover:-translate-y-1.5 hover:border-transparent hover:shadow-md";
+
+export const cardClass = `${cardSurface} px-6.5 py-7.5`;
 
 const sectionTones = {
   white: "",
