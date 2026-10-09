@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "bunx serve out",
+    "deploy": "next build && bunx wrangler pages deploy",
     "lint": "eslint"
   },
   "dependencies": {
