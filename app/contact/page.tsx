@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { ContactLine, Eyebrow, PageHeader, Section } from "@/components/ui";
-import { ClockIcon, MailIcon, PhoneIcon, PinIcon, UserIcon } from "@/components/icons";
+import { Clock, Mail, MapPin, Phone, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -29,19 +29,19 @@ export default function Contact() {
         <div className="reveal">
           <div className="rounded-card bg-navy-800 p-8.5 text-white">
             <h3 className="text-white">Get In Touch</h3>
-            <ContactLine icon={<UserIcon />} label="Aseem Kumar">
+            <ContactLine icon={<User />} label="Aseem Kumar">
               <span>Business Head, UPEC</span>
             </ContactLine>
-            <ContactLine icon={<PhoneIcon />} label="Phone">
+            <ContactLine icon={<Phone />} label="Phone">
               <a href="tel:+919971697292">+91 99716 97292</a>
             </ContactLine>
-            <ContactLine icon={<MailIcon />} label="Email">
+            <ContactLine icon={<Mail />} label="Email">
               <a href="mailto:COO@UPEC.co.in">COO@UPEC.co.in</a>
             </ContactLine>
-            <ContactLine icon={<PinIcon />} label="Plant Location">
+            <ContactLine icon={<MapPin />} label="Plant Location">
               <span>Yamuna Nagar, Haryana, India</span>
             </ContactLine>
-            <ContactLine icon={<ClockIcon />} label="Plant Operations" last>
+            <ContactLine icon={<Clock />} label="Plant Operations" last>
               <span>Round-the-clock production</span>
             </ContactLine>
           </div>

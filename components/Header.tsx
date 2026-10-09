@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -69,11 +70,11 @@ export default function Header() {
     // position:fixed descendants (the mobile nav panel), breaking its top/bottom
     // sizing against the viewport. Background is already near-opaque, so the blur
     // wasn't visible anyway.
-    <header className="sticky top-0 z-999 border-b border-white/8 bg-navy-900/97">
+    <header className="sticky top-0 pt-4 z-999 bg-navy-900">
       <div className={`${container} flex h-19 items-center justify-between`}>
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="h-8 w-auto xs:h-10" />
+          <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="h-12 w-auto xs:h-18" />
         </Link>
         <button
           className="flex min-h-11 min-w-11 flex-none cursor-pointer flex-col items-center justify-center gap-1.25 border-0 bg-transparent p-2 xl:hidden"
@@ -86,7 +87,7 @@ export default function Header() {
           <span className={`${bar} ${navOpen ? "-translate-y-1.75 -rotate-45" : ""}`}></span>
         </button>
         <ul
-          className={`fixed inset-x-0 top-19 bottom-0 flex flex-col items-stretch gap-1 overflow-y-auto bg-navy-900 p-5 transition-[translate] xl:static xl:flex-row xl:items-center xl:overflow-visible xl:bg-transparent xl:p-0 xl:translate-x-0 xl:transition-none ${
+          className={`fixed inset-x-0 bottom-0 flex flex-col items-stretch gap-1 overflow-y-auto bg-navy-900 p-5 transition-[translate] xl:static xl:flex-row xl:items-center xl:overflow-visible xl:bg-transparent xl:p-0 xl:translate-x-0 xl:transition-none ${
             navOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -110,7 +111,7 @@ export default function Header() {
                   }}
                 >
                   {item.label}
-                  {item.children && <>{" "}<span className="mt-0.5 text-[.6rem] opacity-70">▾</span></>}
+                  {item.children && <ChevronDown className="mt-0.5 size-3.5 opacity-70" />}
                 </Link>
                 {item.children && (
                   <div
@@ -133,11 +134,6 @@ export default function Header() {
               </li>
             );
           })}
-          <li className="mt-4.5 xl:mt-0 xl:ml-3">
-            <Link href="/contact" className={`${btn("primary")} w-full xl:w-auto`} onClick={closeMobileNav}>
-              Get a Quote
-            </Link>
-          </li>
         </ul>
       </div>
     </header>

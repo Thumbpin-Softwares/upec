@@ -145,7 +145,7 @@ export function ClientStrip({ clients }: { clients: string[] }) {
     <div className="reveal grid grid-cols-2 gap-2.5 xs:gap-3.5 md:grid-cols-3 lg:grid-cols-6">
       {clients.map((c) => (
         <div
-          className="flex items-center justify-center rounded-lg border border-grey-200 bg-white px-1.5 py-3.5 text-center font-display text-[.82rem] font-bold text-navy-800 transition-all hover:-translate-y-0.75 hover:border-cyan-500 hover:text-blue-600 xs:px-2.5 xs:py-4.5 xs:text-[.98rem]"
+          className="flex items-center justify-center rounded-lg border border-grey-200 bg-white px-1.5 py-3.5 text-center text-[.82rem] font-bold text-navy-800 transition-all hover:-translate-y-0.75 hover:border-cyan-500 hover:text-blue-600 xs:px-2.5 xs:py-4.5 xs:text-[.98rem]"
           key={c}
         >
           {c}

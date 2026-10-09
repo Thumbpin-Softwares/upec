@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClientStrip, ContactLine, CtaBanner, Eyebrow, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
-import { UserIcon } from "@/components/icons";
+import { User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -83,7 +83,7 @@ export default function About() {
             <div key={i}>
               {col.map(([letter, name, text]) => (
                 <div className="flex items-start gap-4.5 border-b border-grey-200 py-4.5 last:border-b-0" key={name}>
-                  <div className="flex size-11.5 flex-none items-center justify-center rounded-card bg-navy-800 font-display text-[1.2rem] font-bold text-cyan-400">
+                  <div className="flex size-11.5 flex-none items-center justify-center rounded-card bg-navy-800 text-[1.2rem] font-bold text-cyan-400">
                     {letter}
                   </div>
                   <div>
@@ -116,7 +116,7 @@ export default function About() {
           </p>
           <div className="mt-6 rounded-card bg-navy-800 p-8.5 text-white">
             <h3 className="text-[1.05rem] text-white">Business Leadership</h3>
-            <ContactLine icon={<UserIcon />} label="Aseem Kumar">
+            <ContactLine icon={<User />} label="Aseem Kumar">
               <span>Business Head, UPEC</span>
               <br />
               <a href="mailto:COO@UPEC.co.in">COO@UPEC.co.in</a>

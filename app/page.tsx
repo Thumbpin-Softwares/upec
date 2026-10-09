@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Stats from "@/components/Stats";
 import { btn, Card, ClientStrip, container, CtaBanner, Eyebrow, ProductCard, Section, SectionHead } from "@/components/ui";
-import { CheckCircleIcon, GearIcon, LayersIcon, TruckIcon } from "@/components/icons";
+import { CircleCheckBig, Layers, Settings, Truck } from "lucide-react";
 
 const PRODUCTS = [
   { src: "/assets/img/products/grille-assembly-parts.jpg", alt: "ID decals and badge tooling", title: "ID Decals & Badges" },
@@ -26,7 +26,7 @@ export default function Home() {
         }}
       >
         <div className={`${container} relative z-2 max-w-170`}>
-          <div className="mb-1.5 font-display text-[1.15rem] text-cyan-400 italic">Passionate Performance!</div>
+          <div className="mb-1.5 text-[1.15rem] text-cyan-400 italic">Passionate Performance!</div>
           <h1 className="text-white">Precision Tooling for Decorative Automotive Parts</h1>
           <p className="max-w-140 text-[1.12rem] text-[#d7e5f2]">
             An affiliate of Polyplastics (India) — 30 years of engineering excellence in design,
@@ -89,19 +89,19 @@ export default function Home() {
           weekly-tracked process engineered to exceed customer expectations.
         </SectionHead>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-4">
-          <Card icon={<LayersIcon />} title="Design & Engineering">
+          <Card icon={<Layers />} title="Design & Engineering">
             Concept creation, CAD modelling, design optimisation, reverse engineering and CAE / flow
             simulation.
           </Card>
-          <Card icon={<GearIcon />} title="Tooling Development">
+          <Card icon={<Settings />} title="Tooling Development">
             Tool design, manufacturing feasibility, gauges &amp; fixtures, and full tool
             manufacturing on 30T&ndash;1300T presses.
           </Card>
-          <Card icon={<CheckCircleIcon />} title="Trials & Quality">
+          <Card icon={<CircleCheckBig />} title="Trials & Quality">
             Batch production, performance testing, trials, observation recording and corrective
             action plans.
           </Card>
-          <Card icon={<TruckIcon />} title="Delivery & Support">
+          <Card icon={<Truck />} title="Delivery & Support">
             Weekly progression updates, part submission with reports, and resolution through
             delivery readiness.
           </Card>

@@ -1,5 +1,6 @@
 "use client";
 
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export type Photo = { src: string; alt: string; caption: string; title: string; subtitle: string };
@@ -48,11 +49,11 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
         }}
       >
         <button
-          className="absolute top-3.5 right-3.5 min-h-11 min-w-11 cursor-pointer border-0 bg-transparent p-2.5 text-[2rem] leading-none text-white"
+          className="absolute top-3.5 right-3.5 flex min-h-11 min-w-11 cursor-pointer items-center justify-center border-0 bg-transparent p-2.5 text-white"
           aria-label="Close"
           onClick={() => setActive(null)}
         >
-          &times;
+          <X className="size-7" />
         </button>
         {active && (
           <div className="max-w-full">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Card, cardClass, CtaBanner, Eyebrow, PageHeader, Section, SectionHead, TagCloud, Timeline } from "@/components/ui";
-import { CarIcon, LinkIcon, LockIcon, WheelIcon } from "@/components/icons";
+import { Bike, Car, LinkIcon, Tractor } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "What We Do",
@@ -65,16 +65,16 @@ export default function WhatWeDo() {
           every decorative touchpoint of the vehicle.
         </SectionHead>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-4">
-          <Card icon={<CarIcon />} title="Passenger Vehicle OEMs">
+          <Card icon={<Car />} title="Passenger Vehicle OEMs">
             Front &amp; rear facia, door and cockpit decoratives for global car brands.
           </Card>
-          <Card icon={<WheelIcon />} title="Two-Wheeler Manufacturers">
+          <Card icon={<Bike />} title="Two-Wheeler Manufacturers">
             Wheel covers, badges and decorative accessories in motion.
           </Card>
           <Card icon={<LinkIcon />} title="Tier-1 Suppliers">
             Sub-tier tooling and mold manufacturing partnerships across programs.
           </Card>
-          <Card icon={<LockIcon />} title="Commercial & Farm Vehicles">
+          <Card icon={<Tractor />} title="Commercial & Farm Vehicles">
             Emblems and decorative badging for commercial and agricultural equipment brands.
           </Card>
         </div>

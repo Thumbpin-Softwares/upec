@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Play } from "lucide-react";
 import Gallery, { type Photo } from "@/components/Gallery";
 import { CtaBanner, PageHeader, Section, SectionHead } from "@/components/ui";
 
@@ -36,7 +37,7 @@ export default function Media() {
         </SectionHead>
         <div className="reveal mx-auto flex aspect-video max-w-225 flex-col items-center justify-center gap-3.5 rounded-card border border-dashed border-white/25 bg-navy-900 text-white">
           <div className="flex size-19 cursor-pointer items-center justify-center rounded-full bg-cyan-500 transition-[scale] hover:scale-108">
-            <svg viewBox="0 0 24 24" className="ml-1 size-6.5 fill-navy-900"><path d="M8 5v14l11-7z" /></svg>
+            <Play className="ml-1 size-6.5 fill-navy-900 text-navy-900" />
           </div>
           <span>Corporate Film &mdash; Coming Soon</span>
         </div>
