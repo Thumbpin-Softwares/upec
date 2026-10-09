@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { btn, container } from "@/components/ui";
+import { container } from "@/components/ui";
 
 // Must match the `xl` breakpoint below which the nav becomes the off-canvas panel (see globals.css)
 const MOBILE_NAV_BP = 1200;
@@ -48,7 +48,7 @@ const NAV: NavItem[] = [
 
 const isMobileNav = () => window.innerWidth <= MOBILE_NAV_BP;
 
-const bar = "h-0.5 w-6 rounded-xs bg-white transition-[translate,rotate,opacity]";
+const bar = "h-0.5 w-6 rounded-xs bg-black transition-[translate,rotate,opacity]";
 
 export default function Header() {
   const pathname = usePathname();
@@ -68,9 +68,8 @@ export default function Header() {
   return (
     // No backdrop-filter here: it makes this sticky header a containing block for
     // position:fixed descendants (the mobile nav panel), breaking its top/bottom
-    // sizing against the viewport. Background is already near-opaque, so the blur
-    // wasn't visible anyway.
-    <header className="sticky top-0 pt-4 z-999 bg-navy-900">
+    // sizing against the viewport. Background is opaque, so a blur wouldn't show anyway.
+    <header className="sticky top-0 z-999 border-b border-grey-200 bg-white pt-4">
       <div className={`${container} flex h-19 items-center justify-between`}>
         <Link href="/" className="flex items-center gap-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -87,7 +86,7 @@ export default function Header() {
           <span className={`${bar} ${navOpen ? "-translate-y-1.75 -rotate-45" : ""}`}></span>
         </button>
         <ul
-          className={`fixed inset-x-0 bottom-0 flex flex-col items-stretch gap-1 overflow-y-auto bg-navy-900 p-5 transition-[translate] xl:static xl:flex-row xl:items-center xl:overflow-visible xl:bg-transparent xl:p-0 xl:translate-x-0 xl:transition-none ${
+          className={`fixed inset-x-0 top-23 bottom-0 flex flex-col items-stretch gap-1 overflow-y-auto bg-white p-5 transition-[translate] xl:static xl:flex-row xl:items-center xl:overflow-visible xl:bg-transparent xl:p-0 xl:translate-x-0 xl:transition-none ${
             navOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -98,8 +97,8 @@ export default function Header() {
               <li key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className={`flex items-center justify-between gap-1.25 border-b border-white/6 px-1.5 py-4 text-[.95rem] font-medium transition-colors hover:text-cyan-400 xl:justify-start xl:border-b-0 xl:px-4 xl:py-6.75 ${
-                    active ? "text-cyan-400" : "text-[#dce7f2]"
+                  className={`flex items-center justify-between gap-1.25 border-b border-grey-200 px-1.5 py-4 text-[.95rem] font-medium transition-colors hover:text-blue-600 xl:justify-start xl:border-b-0 xl:px-4 xl:py-6.75 ${
+                    active ? "text-blue-600" : "text-black"
                   }`}
                   onClick={(e) => {
                     if (item.children && isMobileNav()) {
@@ -115,7 +114,7 @@ export default function Header() {
                 </Link>
                 {item.children && (
                   <div
-                    className={`mb-2 rounded-card bg-white/4 p-2.5 xl:invisible xl:absolute xl:top-full xl:left-0 xl:mb-0 xl:block xl:min-w-60 xl:translate-y-2 xl:bg-white xl:opacity-0 xl:shadow-lg xl:transition-all xl:group-hover:visible xl:group-hover:translate-y-0 xl:group-hover:opacity-100 ${
+                    className={`mb-2 rounded-card bg-grey-100 p-2.5 xl:invisible xl:absolute xl:top-full xl:left-0 xl:mb-0 xl:block xl:min-w-60 xl:translate-y-2 xl:bg-white xl:opacity-0 xl:shadow-lg xl:transition-all xl:group-hover:visible xl:group-hover:translate-y-0 xl:group-hover:opacity-100 ${
                       open ? "block" : "hidden"
                     }`}
                   >
@@ -124,7 +123,7 @@ export default function Header() {
                         key={child.href}
                         href={child.href}
                         onClick={closeMobileNav}
-                        className="block rounded-md px-3.5 py-2.75 text-[.92rem] font-medium text-[#dce7f2] hover:bg-white/8 hover:text-cyan-400 xl:text-navy-800 xl:hover:bg-grey-100 xl:hover:text-blue-600"
+                        className="block rounded-md px-3.5 py-2.75 text-[.92rem] font-medium text-black hover:bg-grey-200 hover:text-blue-600 xl:hover:bg-grey-100"
                       >
                         {child.label}
                       </Link>
