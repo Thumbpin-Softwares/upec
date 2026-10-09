@@ -48,12 +48,13 @@ export default function Stats({ stats }: { stats: Stat[] }) {
 
   return (
     <div
-      className="reveal relative z-5 -mt-6 grid grid-cols-2 gap-2.5 xs:gap-3.5 sm:-mt-7.5 md:-mt-14 md:gap-5 lg:grid-cols-4"
+      // One strip: the 1px gap shows the grey background through as divider lines
+      className="reveal relative z-5 -mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-card border-b-3 border-cyan-500 bg-grey-200 shadow-md sm:-mt-7.5 md:-mt-14 lg:grid-cols-4"
       ref={ref}
     >
       {stats.map((s) => (
         <div
-          className="rounded-card border-b-3 border-cyan-500 bg-white px-2.5 py-4.5 text-center shadow-md xs:px-3.5 xs:py-5.5 md:px-5 md:py-7"
+          className="bg-white px-2.5 py-4.5 text-center xs:px-3.5 xs:py-5.5 md:px-5 md:py-7"
           key={s.label}
         >
           <span className="block text-[1.4rem] font-bold text-navy-800 xs:text-[1.7rem] md:text-[2.1rem]">

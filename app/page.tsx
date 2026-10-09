@@ -25,21 +25,21 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative flex items-center overflow-hidden bg-navy-900 pt-29.5 pb-17 text-white after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_82%_20%,rgba(23,179,217,.25),transparent_45%)] sm:pt-32.5 sm:pb-19 md:min-h-160 md:py-0"
+        className="relative flex items-center overflow-hidden bg-navy-900 pt-16 pb-20 text-white after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_82%_20%,rgba(23,179,217,.25),transparent_45%)] sm:pt-20 sm:pb-24 md:min-h-160 md:py-0"
       >
         <HeroCarousel images={HERO_IMAGES} />
-        <div className={`relative z-2 w-full`}>
+        <div className="relative z-2 w-full px-6">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-1.5 text-[1.15rem] font-medium text-cyan-400">Passionate Performance!</div>
-            <h1 className="text-white">Precision Tooling for Decorative Automotive Parts</h1>
-            <p className="mx-auto max-w-2xl text-lg text-[#d7e5f2]">
+            <div className="mb-1.5 text-base font-medium text-cyan-400 sm:text-[1.15rem]">Passionate Performance!</div>
+            <h1 className="text-balance text-white">Precision Tooling for Decorative Automotive Parts</h1>
+            <p className="mx-auto max-w-2xl text-base text-pretty text-[#d7e5f2] sm:text-lg">
               An affiliate of Polyplastics (India), with 30 years of engineering excellence in design,
               tooling and production of high-gloss, IMD, 2K &amp; Kromex decorative components for
               leading global OEMs.
             </p>
-            <div className="mt-7.5 flex flex-wrap justify-center gap-3.5 max-md:flex-col max-md:items-stretch">
+            <div className="mt-7.5 flex flex-wrap justify-center gap-3.5 max-md:mx-auto max-md:max-w-xs max-md:flex-col max-md:items-stretch">
               <Link href="/what-we-do" className={`${btn("primary")} max-md:whitespace-normal`}>
-                Explore Our Capabilities
+                Explore Capabilities
               </Link>
               <Link href="/contact" className={`${btn("outline")} max-md:whitespace-normal`}>
                 Get In Touch
@@ -76,7 +76,9 @@ export default function Home() {
             solutions for decorative automotive parts, from ID decals and badges to facia, cockpit
             and wheel decoratives.
           </p>
-          <Link href="/about" className={btn("dark")}>Read Our Full Story</Link>
+          <Link href="/about" className={`${btn("dark")} max-md:mx-auto max-md:flex max-md:w-fit`}>
+            Read Our Full Story
+          </Link>
         </div>
         <div className="reveal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
