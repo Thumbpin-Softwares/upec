@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Gallery, { type Photo } from "@/components/Gallery";
-import { CtaBanner, PageHeader, SectionHead } from "@/components/ui";
+import { CtaBanner, PageHeader, Section, SectionHead } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Media",
@@ -29,40 +29,34 @@ export default function Media() {
         image="/assets/img/photos/shop-floor-edm.jpg"
       />
 
-      <section className="section">
-        <div className="container">
-          <SectionHead eyebrow="Corporate Film" title="UPEC in motion">
-            Our corporate film is freshly shot and on its way — this space is ready and will go live as
-            soon as the final edit is in hand.
-          </SectionHead>
-          <div className="media-placeholder reveal" style={{ maxWidth: 900, margin: "0 auto" }}>
-            <div className="play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-            </div>
-            <span>Corporate Film &mdash; Coming Soon</span>
+      <Section>
+        <SectionHead eyebrow="Corporate Film" title="UPEC in motion">
+          Our corporate film is freshly shot and on its way — this space is ready and will go live as
+          soon as the final edit is in hand.
+        </SectionHead>
+        <div className="reveal mx-auto flex aspect-video max-w-225 flex-col items-center justify-center gap-3.5 rounded-card border border-dashed border-white/25 bg-navy-900 text-white">
+          <div className="flex size-19 cursor-pointer items-center justify-center rounded-full bg-cyan-500 transition-[scale] hover:scale-108">
+            <svg viewBox="0 0 24 24" className="ml-1 size-6.5 fill-navy-900"><path d="M8 5v14l11-7z" /></svg>
           </div>
+          <span>Corporate Film &mdash; Coming Soon</span>
         </div>
-      </section>
+      </Section>
 
-      <section className="section section--grey">
-        <div className="container">
-          <SectionHead eyebrow="Photo Gallery" title="Inside our shop floor & engineering studio">
-            Click any photo to view it full-size.
-          </SectionHead>
-          <Gallery photos={PHOTOS} />
-        </div>
-      </section>
+      <Section tone="grey">
+        <SectionHead eyebrow="Photo Gallery" title="Inside our shop floor & engineering studio">
+          Click any photo to view it full-size.
+        </SectionHead>
+        <Gallery photos={PHOTOS} />
+      </Section>
 
-      <section className="section">
-        <div className="container">
-          <CtaBanner
-            title="Want the full picture?"
-            text="Talk to us about a plant visit or a detailed capability walkthrough."
-            href="/contact"
-            label="Contact Us"
-          />
-        </div>
-      </section>
+      <Section>
+        <CtaBanner
+          title="Want the full picture?"
+          text="Talk to us about a plant visit or a detailed capability walkthrough."
+          href="/contact"
+          label="Contact Us"
+        />
+      </Section>
     </>
   );
 }

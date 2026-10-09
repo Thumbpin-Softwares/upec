@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Card, CtaBanner, PageHeader, SectionHead, TagCloud, Timeline } from "@/components/ui";
+import { Card, cardClass, CtaBanner, Eyebrow, PageHeader, Section, SectionHead, TagCloud, Timeline } from "@/components/ui";
 import { CarIcon, LinkIcon, LockIcon, WheelIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
@@ -37,78 +37,67 @@ export default function WhatWeDo() {
         image="/assets/img/products/mold-tool-progression.jpg"
       />
 
-      <section className="section" id="process">
-        <div className="container">
-          <div className="grid grid-2" style={{ gap: 56 }}>
-            <div className="reveal">
-              <div className="eyebrow">Our Process</div>
-              <h2>Project control, step by step</h2>
-              <p>
-                Every tooling program at UPEC runs through the same disciplined pipeline — reviewed
-                weekly and shared transparently with the customer.
-              </p>
-            </div>
-            <div className="reveal">
-              <Timeline items={PROCESS} />
-            </div>
+      <Section id="process" className="grid grid-cols-1 gap-5 md:gap-14 lg:grid-cols-2">
+        <div className="reveal">
+          <Eyebrow>Our Process</Eyebrow>
+          <h2>Project control, step by step</h2>
+          <p>
+            Every tooling program at UPEC runs through the same disciplined pipeline — reviewed
+            weekly and shared transparently with the customer.
+          </p>
+        </div>
+        <div className="reveal">
+          <Timeline items={PROCESS} />
+        </div>
+      </Section>
+
+      <Section tone="grey">
+        <SectionHead eyebrow="Engineering Capabilities" title="Concept to tool manufacturing — in-house">
+          Supported by Hexagon, Visi, CATIA, Siemens NX, Autodesk PowerShape/AutoCAD, Elsyca,
+          Cadmould, Ansys and Creo.
+        </SectionHead>
+        <TagCloud tags={CAPABILITIES} />
+      </Section>
+
+      <Section id="who-we-work-for">
+        <SectionHead eyebrow="Who We Work For" title="OEMs and Tier-1s building the vehicles you see on the road">
+          We partner with passenger vehicle, two-wheeler and commercial vehicle manufacturers across
+          every decorative touchpoint of the vehicle.
+        </SectionHead>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-4">
+          <Card icon={<CarIcon />} title="Passenger Vehicle OEMs">
+            Front &amp; rear facia, door and cockpit decoratives for global car brands.
+          </Card>
+          <Card icon={<WheelIcon />} title="Two-Wheeler Manufacturers">
+            Wheel covers, badges and decorative accessories in motion.
+          </Card>
+          <Card icon={<LinkIcon />} title="Tier-1 Suppliers">
+            Sub-tier tooling and mold manufacturing partnerships across programs.
+          </Card>
+          <Card icon={<LockIcon />} title="Commercial & Farm Vehicles">
+            Emblems and decorative badging for commercial and agricultural equipment brands.
+          </Card>
+        </div>
+        <div className="reveal mt-10 grid grid-cols-1 gap-5 md:gap-6 lg:grid-cols-2">
+          <div className={`${cardClass} text-center`}>
+            <h3 className="mb-1">30T &ndash; 1300T</h3>
+            <p className="mb-0 text-[.94rem]">Press size capability, with max lift capacity of 10,000 kg</p>
+          </div>
+          <div className={`${cardClass} text-center`}>
+            <h3 className="mb-1">Hi-Gloss &middot; IMD &middot; 2K &middot; Kromex</h3>
+            <p className="mb-0 text-[.94rem]">Specialised decorative finish technologies</p>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="section section--grey">
-        <div className="container">
-          <SectionHead eyebrow="Engineering Capabilities" title="Concept to tool manufacturing — in-house">
-            Supported by Hexagon, Visi, CATIA, Siemens NX, Autodesk PowerShape/AutoCAD, Elsyca,
-            Cadmould, Ansys and Creo.
-          </SectionHead>
-          <TagCloud tags={CAPABILITIES} />
-        </div>
-      </section>
-
-      <section className="section" id="who-we-work-for">
-        <div className="container">
-          <SectionHead eyebrow="Who We Work For" title="OEMs and Tier-1s building the vehicles you see on the road">
-            We partner with passenger vehicle, two-wheeler and commercial vehicle manufacturers across
-            every decorative touchpoint of the vehicle.
-          </SectionHead>
-          <div className="grid grid-4">
-            <Card icon={<CarIcon />} title="Passenger Vehicle OEMs">
-              Front &amp; rear facia, door and cockpit decoratives for global car brands.
-            </Card>
-            <Card icon={<WheelIcon />} title="Two-Wheeler Manufacturers">
-              Wheel covers, badges and decorative accessories in motion.
-            </Card>
-            <Card icon={<LinkIcon />} title="Tier-1 Suppliers">
-              Sub-tier tooling and mold manufacturing partnerships across programs.
-            </Card>
-            <Card icon={<LockIcon />} title="Commercial & Farm Vehicles">
-              Emblems and decorative badging for commercial and agricultural equipment brands.
-            </Card>
-          </div>
-          <div className="grid grid-2 reveal" style={{ marginTop: 40, gap: 24 }}>
-            <div className="card" style={{ textAlign: "center" }}>
-              <h3 style={{ marginBottom: 4 }}>30T &ndash; 1300T</h3>
-              <p>Press size capability, with max lift capacity of 10,000 kg</p>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <h3 style={{ marginBottom: 4 }}>Hi-Gloss &middot; IMD &middot; 2K &middot; Kromex</h3>
-              <p>Specialised decorative finish technologies</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--grey">
-        <div className="container">
-          <CtaBanner
-            title="See what we've built"
-            text="Browse decorative tooling programs delivered for Renault, Nissan, Maruti Suzuki and more."
-            href="/our-products"
-            label="View Our Products"
-            style={{ background: "linear-gradient(120deg, var(--navy-900), var(--navy-700))" }}
-          />
-        </div>
-      </section>
+      <Section tone="grey">
+        <CtaBanner
+          title="See what we've built"
+          text="Browse decorative tooling programs delivered for Renault, Nissan, Maruti Suzuki and more."
+          href="/our-products"
+          label="View Our Products"
+        />
+      </Section>
     </>
   );
 }

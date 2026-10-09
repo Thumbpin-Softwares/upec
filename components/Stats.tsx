@@ -47,13 +47,19 @@ export default function Stats({ stats }: { stats: Stat[] }) {
   }, []);
 
   return (
-    <div className="stats reveal" ref={ref}>
+    <div
+      className="reveal relative z-5 -mt-6 grid grid-cols-2 gap-2.5 xs:gap-3.5 sm:-mt-7.5 md:-mt-14 md:gap-5 lg:grid-cols-4"
+      ref={ref}
+    >
       {stats.map((s) => (
-        <div className="stat-card" key={s.label}>
-          <span className="num">
+        <div
+          className="rounded-card border-b-3 border-cyan-500 bg-white px-2.5 py-4.5 text-center shadow-md xs:px-3.5 xs:py-5.5 md:px-5 md:py-7"
+          key={s.label}
+        >
+          <span className="block font-display text-[1.4rem] font-bold text-navy-800 xs:text-[1.7rem] md:text-[2.1rem]">
             {"count" in s ? <Counter target={s.count} suffix={s.suffix} run={run} /> : s.text}
           </span>
-          <span className="lbl">{s.label}</span>
+          <span className="text-[.72rem] font-medium text-grey-600 xs:text-[.85rem]">{s.label}</span>
         </div>
       ))}
     </div>

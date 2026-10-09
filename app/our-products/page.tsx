@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CtaBanner, PageHeader, SectionHead, TagCloud } from "@/components/ui";
+import { CtaBanner, PageHeader, ProductCard, Section, SectionHead, TagCloud } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Our Products",
@@ -29,22 +29,6 @@ const PROGRAMS: Product[] = [
   { src: "/assets/img/products/mold-base-render.jpg", alt: "Complete mold base assembly render", tag: "Tooling Craft", title: "Full Mold Base Assembly", text: "Complete tool build — from base plate to cavity — engineered in-house." },
 ];
 
-function ProductCard({ p, cover }: { p: Product; cover?: boolean }) {
-  return (
-    <div className="product-card reveal">
-      <div className={cover ? "thumb cover" : "thumb"}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.src} alt={p.alt} />
-      </div>
-      <div className="body">
-        <span className="tag">{p.tag}</span>
-        <h3>{p.title}</h3>
-        <p>{p.text}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function OurProducts() {
   return (
     <>
@@ -55,44 +39,38 @@ export default function OurProducts() {
         image="/assets/img/products/facia-tool-cavity.jpg"
       />
 
-      <section className="section" id="industry-wise">
-        <div className="container">
-          <SectionHead eyebrow="Industry Wise" title="What we tool, category by category" />
-          <div className="grid grid-4">
-            {INDUSTRY.map((p) => (
-              <ProductCard key={p.title} p={p} />
-            ))}
-          </div>
+      <Section id="industry-wise">
+        <SectionHead eyebrow="Industry Wise" title="What we tool, category by category" />
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-4">
+          {INDUSTRY.map((p) => (
+            <ProductCard key={p.title} {...p} />
+          ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="section section--grey" id="final-products">
-        <div className="container">
-          <SectionHead eyebrow="Final Products" title="Programs delivered">
-            A snapshot of decorative tooling programs completed end-to-end — from creative concept to
-            tool manufacturing.
-          </SectionHead>
-          <div className="grid grid-3">
-            {PROGRAMS.map((p) => (
-              <ProductCard key={p.title} p={p} cover />
-            ))}
-          </div>
+      <Section id="final-products" tone="grey">
+        <SectionHead eyebrow="Final Products" title="Programs delivered">
+          A snapshot of decorative tooling programs completed end-to-end — from creative concept to
+          tool manufacturing.
+        </SectionHead>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-3">
+          {PROGRAMS.map((p) => (
+            <ProductCard key={p.title} {...p} cover />
+          ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="section">
-        <div className="container">
-          <SectionHead eyebrow="Technologies" title="Finish technologies we specialise in" />
-          <TagCloud tags={["Hi-Gloss", "In-Mold Decoration (IMD)", "2K Molding", "Kromex Chrome Finish"]} />
-          <CtaBanner
-            title="Need a custom decorative tooling program?"
-            text="Share your part drawings and timelines — our engineering team will take it from there."
-            href="/contact"
-            label="Start a Conversation"
-            style={{ marginTop: 44 }}
-          />
-        </div>
-      </section>
+      <Section>
+        <SectionHead eyebrow="Technologies" title="Finish technologies we specialise in" />
+        <TagCloud tags={["Hi-Gloss", "In-Mold Decoration (IMD)", "2K Molding", "Kromex Chrome Finish"]} />
+        <CtaBanner
+          title="Need a custom decorative tooling program?"
+          text="Share your part drawings and timelines — our engineering team will take it from there."
+          href="/contact"
+          label="Start a Conversation"
+          className="mt-11"
+        />
+      </Section>
     </>
   );
 }

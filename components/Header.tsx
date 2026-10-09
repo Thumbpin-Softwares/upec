@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { btn, container } from "@/components/ui";
 
-// Must match the CSS media query that switches .nav to the off-canvas panel (see globals.css)
+// Must match the `xl` breakpoint below which the nav becomes the off-canvas panel (see globals.css)
 const MOBILE_NAV_BP = 1200;
 
 type NavItem = {
@@ -46,6 +47,8 @@ const NAV: NavItem[] = [
 
 const isMobileNav = () => window.innerWidth <= MOBILE_NAV_BP;
 
+const bar = "h-0.5 w-6 rounded-xs bg-white transition-[translate,rotate,opacity]";
+
 export default function Header() {
   const pathname = usePathname();
   const [navOpen, setNavOpen] = useState(false);
@@ -62,33 +65,41 @@ export default function Header() {
   };
 
   return (
-    <header className="site-header">
-      <div className="container nav-wrap">
-        <Link href="/" className="brand">
+    // No backdrop-filter here: it makes this sticky header a containing block for
+    // position:fixed descendants (the mobile nav panel), breaking its top/bottom
+    // sizing against the viewport. Background is already near-opaque, so the blur
+    // wasn't visible anyway.
+    <header className="sticky top-0 z-999 border-b border-white/8 bg-navy-900/97">
+      <div className={`${container} flex h-19 items-center justify-between`}>
+        <Link href="/" className="flex items-center gap-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/img/upec-logo.png" alt="UPEC logo" />
+          <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="h-8 w-auto xs:h-10" />
         </Link>
         <button
-          className={`nav-toggle${navOpen ? " open" : ""}`}
+          className="flex min-h-11 min-w-11 flex-none cursor-pointer flex-col items-center justify-center gap-1.25 border-0 bg-transparent p-2 xl:hidden"
           aria-label="Toggle menu"
           aria-expanded={navOpen}
           onClick={() => setNavOpen((o) => !o)}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className={`${bar} ${navOpen ? "translate-y-1.75 rotate-45" : ""}`}></span>
+          <span className={`${bar} ${navOpen ? "opacity-0" : ""}`}></span>
+          <span className={`${bar} ${navOpen ? "-translate-y-1.75 -rotate-45" : ""}`}></span>
         </button>
-        <ul className={`nav${navOpen ? " open" : ""}`}>
+        <ul
+          className={`fixed inset-x-0 top-19 bottom-0 flex flex-col items-stretch gap-1 overflow-y-auto bg-navy-900 p-5 transition-[translate] xl:static xl:flex-row xl:items-center xl:overflow-visible xl:bg-transparent xl:p-0 xl:translate-x-0 xl:transition-none ${
+            navOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
           {NAV.map((item) => {
-            const classes = [
-              pathname === item.href ? "active" : "",
-              openItem === item.href ? "open" : "",
-            ].filter(Boolean);
+            const active = pathname === item.href;
+            const open = openItem === item.href;
             return (
-              <li key={item.href} className={classes.join(" ") || undefined}>
+              <li key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className={item.href === "/" ? "top-link" : undefined}
+                  className={`flex items-center justify-between gap-1.25 border-b border-white/6 px-1.5 py-4 text-[.95rem] font-medium transition-colors hover:text-cyan-400 xl:justify-start xl:border-b-0 xl:px-4 xl:py-6.75 ${
+                    active ? "text-cyan-400" : "text-[#dce7f2]"
+                  }`}
                   onClick={(e) => {
                     if (item.children && isMobileNav()) {
                       e.preventDefault();
@@ -99,12 +110,21 @@ export default function Header() {
                   }}
                 >
                   {item.label}
-                  {item.children && <>{" "}<span className="caret">▾</span></>}
+                  {item.children && <>{" "}<span className="mt-0.5 text-[.6rem] opacity-70">▾</span></>}
                 </Link>
                 {item.children && (
-                  <div className="dropdown">
+                  <div
+                    className={`mb-2 rounded-card bg-white/4 p-2.5 xl:invisible xl:absolute xl:top-full xl:left-0 xl:mb-0 xl:block xl:min-w-60 xl:translate-y-2 xl:bg-white xl:opacity-0 xl:shadow-lg xl:transition-all xl:group-hover:visible xl:group-hover:translate-y-0 xl:group-hover:opacity-100 ${
+                      open ? "block" : "hidden"
+                    }`}
+                  >
                     {item.children.map((child) => (
-                      <Link key={child.href} href={child.href} onClick={closeMobileNav}>
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={closeMobileNav}
+                        className="block rounded-md px-3.5 py-2.75 text-[.92rem] font-medium text-[#dce7f2] hover:bg-white/8 hover:text-cyan-400 xl:text-navy-800 xl:hover:bg-grey-100 xl:hover:text-blue-600"
+                      >
                         {child.label}
                       </Link>
                     ))}
@@ -113,8 +133,8 @@ export default function Header() {
               </li>
             );
           })}
-          <li className="nav-cta">
-            <Link href="/contact" className="btn btn-primary" onClick={closeMobileNav}>
+          <li className="mt-4.5 xl:mt-0 xl:ml-3">
+            <Link href="/contact" className={`${btn("primary")} w-full xl:w-auto`} onClick={closeMobileNav}>
               Get a Quote
             </Link>
           </li>

@@ -30,8 +30,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} overflow-x-hidden scroll-smooth`}>
+      <body className="w-full overflow-x-hidden bg-white font-sans leading-[1.65] text-ink antialiased max-xl:[&.nav-open]:overflow-hidden">
         <Header />
         <main>{children}</main>
         <Footer />
