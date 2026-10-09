@@ -41,7 +41,7 @@ export default function Footer() {
             <ul className={list}>
               <li><a href="tel:+919971697292">+91 99716 97292</a></li>
               <li><a href="mailto:COO@UPEC.co.in">COO@UPEC.co.in</a></li>
-              <li>Yamuna Nagar, Haryana, India</li>
+              <li>Unit- E13, Industrial Area, Yamuna Nagar, 135001</li>
             </ul>
           </div>
         </div>
