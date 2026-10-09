@@ -6,7 +6,7 @@ import { Clock, Mail, MapPin, Phone, User } from "lucide-react";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with United Precision Engineering Company, Yamuna Nagar — request a quote for decorative automotive tooling.",
+    "Get in touch with United Precision Engineering Company, Yamuna Nagar. Request a quote for decorative automotive tooling.",
 };
 
 export default function Contact() {
@@ -15,7 +15,7 @@ export default function Contact() {
       <PageHeader
         title="Contact Us"
         crumb="Contact Us"
-        lead="Tell us about your decorative tooling requirement — we'll get back to you quickly."
+        lead="Tell us about your decorative tooling requirement and we'll get back to you quickly."
         image="/assets/img/photos/shop-floor-cnc.jpg"
       />
 
@@ -51,7 +51,7 @@ export default function Contact() {
               src="https://maps.google.com/maps?q=Yamuna%20Nagar%2C%20Haryana%2C%20India&t=&z=12&ie=UTF8&iwloc=&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="UPEC location — Yamuna Nagar, Haryana"
+              title="UPEC location: Yamuna Nagar, Haryana"
               className="block h-65 w-full border-0 md:h-85"
             />
           </div>

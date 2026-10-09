@@ -4,7 +4,7 @@ import { CtaBanner, PageHeader, ProductCard, Section, SectionHead, TagCloud } fr
 export const metadata: Metadata = {
   title: "Our Products",
   description:
-    "Decorative automotive tooling by industry and product — ID decals, facia decoratives, wheel covers, cockpit decorations and delivered programs for Renault, Nissan and more.",
+    "Decorative automotive tooling by industry and product: ID decals, facia decoratives, wheel covers, cockpit decorations and delivered programs for Renault, Nissan and more.",
 };
 
 type Product = { src: string; alt: string; tag: string; title: string; text: string };
@@ -26,7 +26,7 @@ const PROGRAMS: Product[] = [
   { src: "/assets/img/products/bumper-reinforcement.jpg", alt: "Renault Kiger and Triber exterior decorative tooling", tag: "34+ Parts · 16 Month KO–SOP", title: "Renault Kiger / Triber", text: "Front & rear exterior module decoratives across 3 plant and 4 tooling locations." },
   { src: "/assets/img/products/wheel-cover-tool.jpg", alt: "Hi-gloss decorative wheel cover tooling", tag: "In-Motion Decorative", title: "Hi-Gloss Wheel Cover Tooling", text: "Decorative wheel cover mold engineered for a consistent high-gloss finish in motion." },
   { src: "/assets/img/products/facia-tool-cavity.jpg", alt: "Grille tool cavity insert", tag: "Tooling Craft", title: "Grille Tool Cavity & Insert", text: "Precision cavity and insert engineering behind every facia grille program." },
-  { src: "/assets/img/products/mold-base-render.jpg", alt: "Complete mold base assembly render", tag: "Tooling Craft", title: "Full Mold Base Assembly", text: "Complete tool build — from base plate to cavity — engineered in-house." },
+  { src: "/assets/img/products/mold-base-render.jpg", alt: "Complete mold base assembly render", tag: "Tooling Craft", title: "Full Mold Base Assembly", text: "Complete tool build, from base plate to cavity, engineered in-house." },
 ];
 
 export default function OurProducts() {
@@ -35,7 +35,7 @@ export default function OurProducts() {
       <PageHeader
         title="Our Products"
         crumb="Our Products"
-        lead="Decorative tooling across every visible touchpoint of a vehicle — organised by industry and by program."
+        lead="Decorative tooling across every visible touchpoint of a vehicle, organised by industry and by program."
         image="/assets/img/products/facia-tool-cavity.jpg"
       />
 
@@ -50,7 +50,7 @@ export default function OurProducts() {
 
       <Section id="final-products" tone="grey">
         <SectionHead eyebrow="Final Products" title="Programs delivered">
-          A snapshot of decorative tooling programs completed end-to-end — from creative concept to
+          A snapshot of decorative tooling programs completed end-to-end, from creative concept to
           tool manufacturing.
         </SectionHead>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-3">
@@ -65,7 +65,7 @@ export default function OurProducts() {
         <TagCloud tags={["Hi-Gloss", "In-Mold Decoration (IMD)", "2K Molding", "Kromex Chrome Finish"]} />
         <CtaBanner
           title="Need a custom decorative tooling program?"
-          text="Share your part drawings and timelines — our engineering team will take it from there."
+          text="Share your part drawings and timelines and our engineering team will take it from there."
           href="/contact"
           label="Start a Conversation"
           className="mt-11"

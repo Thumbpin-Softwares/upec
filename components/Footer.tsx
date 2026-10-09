@@ -14,7 +14,7 @@ export default function Footer() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="mb-3.5 h-9.5 w-auto" />
             <p className="text-[.9rem] text-[#93a7bb]">
-              United Precision Engineering Company — an affiliate of Polyplastics (India). Design,
+              United Precision Engineering Company, an affiliate of Polyplastics (India). Design,
               engineering, tooling &amp; production solutions for decorative automotive parts.
             </p>
           </div>

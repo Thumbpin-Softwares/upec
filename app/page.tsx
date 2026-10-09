@@ -1,7 +1,13 @@
 import Link from "next/link";
+import HeroCarousel from "@/components/HeroCarousel";
 import Stats from "@/components/Stats";
 import { btn, Card, ClientStrip, container, CtaBanner, Eyebrow, ProductCard, Section, SectionHead } from "@/components/ui";
 import { CircleCheckBig, Layers, Settings, Truck } from "lucide-react";
+
+const HERO_IMAGES = [
+  "/assets/img/photos/shop-floor-cnc.jpg",
+  "/assets/img/photos/shop-floor-edm.jpg",
+];
 
 const PRODUCTS = [
   { src: "/assets/img/products/grille-assembly-parts.jpg", alt: "ID decals and badge tooling", title: "ID Decals & Badges" },
@@ -19,27 +25,26 @@ export default function Home() {
   return (
     <>
       <section
-        className="relative flex items-center overflow-hidden bg-navy-900 bg-cover bg-center pt-29.5 pb-17 text-white after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_82%_20%,rgba(23,179,217,.25),transparent_45%)] sm:pt-32.5 sm:pb-19 md:min-h-160 md:py-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(120deg, rgba(6,26,51,.94), rgba(10,44,84,.85)), url('/assets/img/photos/shop-floor-cnc.jpg')",
-        }}
+        className="relative flex items-center overflow-hidden bg-navy-900 pt-29.5 pb-17 text-white after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_82%_20%,rgba(23,179,217,.25),transparent_45%)] sm:pt-32.5 sm:pb-19 md:min-h-160 md:py-0"
       >
-        <div className={`${container} relative z-2 max-w-170`}>
-          <div className="mb-1.5 text-[1.15rem] text-cyan-400 italic">Passionate Performance!</div>
-          <h1 className="text-white">Precision Tooling for Decorative Automotive Parts</h1>
-          <p className="max-w-140 text-[1.12rem] text-[#d7e5f2]">
-            An affiliate of Polyplastics (India) — 30 years of engineering excellence in design,
-            tooling and production of high-gloss, IMD, 2K &amp; Kromex decorative components for
-            leading global OEMs.
-          </p>
-          <div className="mt-7.5 flex flex-wrap gap-3.5 max-md:flex-col max-md:items-stretch">
-            <Link href="/what-we-do" className={`${btn("primary")} max-md:whitespace-normal`}>
-              Explore Our Capabilities
-            </Link>
-            <Link href="/contact" className={`${btn("outline")} max-md:whitespace-normal`}>
-              Get In Touch
-            </Link>
+        <HeroCarousel images={HERO_IMAGES} />
+        <div className={`relative z-2 w-full`}>
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-1.5 text-[1.15rem] font-medium text-cyan-400">Passionate Performance!</div>
+            <h1 className="text-white">Precision Tooling for Decorative Automotive Parts</h1>
+            <p className="mx-auto max-w-2xl text-lg text-[#d7e5f2]">
+              An affiliate of Polyplastics (India), with 30 years of engineering excellence in design,
+              tooling and production of high-gloss, IMD, 2K &amp; Kromex decorative components for
+              leading global OEMs.
+            </p>
+            <div className="mt-7.5 flex flex-wrap justify-center gap-3.5 max-md:flex-col max-md:items-stretch">
+              <Link href="/what-we-do" className={`${btn("primary")} max-md:whitespace-normal`}>
+                Explore Our Capabilities
+              </Link>
+              <Link href="/contact" className={`${btn("outline")} max-md:whitespace-normal`}>
+                Get In Touch
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -60,15 +65,15 @@ export default function Home() {
           <Eyebrow>About UPEC</Eyebrow>
           <h2>30 years of precision, one focus: decorative automotive tooling</h2>
           <p>
-            Started in April 1996 as a captive tooling setup for the Polyplastics Group — India&apos;s
-            #1 auto deco part maker — UPEC transformed into an independent profit center in 2012 and
+            Started in April 1996 as a captive tooling setup for the Polyplastics Group (India&apos;s
+            #1 auto deco part maker), UPEC transformed into an independent profit center in 2012 and
             relocated to a larger, purpose-built facility in 2020. Today, we run a full-fledged
             tooling operation exclusively focused on decorative molds, backed by round-the-clock
             production and a 170+ strong team of experienced and emerging engineers.
           </p>
           <p>
             Our core competence lies in providing design, engineering, tooling and production
-            solutions for decorative automotive parts — from ID decals and badges to facia, cockpit
+            solutions for decorative automotive parts, from ID decals and badges to facia, cockpit
             and wheel decoratives.
           </p>
           <Link href="/about" className={btn("dark")}>Read Our Full Story</Link>

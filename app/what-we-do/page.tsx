@@ -5,7 +5,7 @@ import { Bike, Car, LinkIcon, Tractor } from "lucide-react";
 export const metadata: Metadata = {
   title: "What We Do",
   description:
-    "Our process, engineering capabilities and the OEMs and Tier-1s we work for — decorative automotive tooling from concept to delivery.",
+    "Our process, engineering capabilities and the OEMs and Tier-1s we work for: decorative automotive tooling from concept to delivery.",
 };
 
 const PROCESS = [
@@ -33,7 +33,7 @@ export default function WhatWeDo() {
       <PageHeader
         title="What We Do"
         crumb="What We Do"
-        lead="A controlled, weekly-tracked process — from contract review to delivery readiness — built around decorative tooling."
+        lead="A controlled, weekly-tracked process, from contract review to delivery readiness, built around decorative tooling."
         image="/assets/img/products/mold-tool-progression.jpg"
       />
 
@@ -42,7 +42,7 @@ export default function WhatWeDo() {
           <Eyebrow>Our Process</Eyebrow>
           <h2>Project control, step by step</h2>
           <p>
-            Every tooling program at UPEC runs through the same disciplined pipeline — reviewed
+            Every tooling program at UPEC runs through the same disciplined pipeline, reviewed
             weekly and shared transparently with the customer.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function WhatWeDo() {
       </Section>
 
       <Section tone="grey">
-        <SectionHead eyebrow="Engineering Capabilities" title="Concept to tool manufacturing — in-house">
+        <SectionHead eyebrow="Engineering Capabilities" title="Concept to tool manufacturing, in-house">
           Supported by Hexagon, Visi, CATIA, Siemens NX, Autodesk PowerShape/AutoCAD, Elsyca,
           Cadmould, Ansys and Creo.
         </SectionHead>

@@ -9,13 +9,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "UPEC | United Precision Engineering Company — Yamuna Nagar",
-    template: "%s | UPEC — United Precision Engineering Company",
+    default: "UPEC | United Precision Engineering Company, Yamuna Nagar",
+    template: "%s | UPEC | United Precision Engineering Company",
   },
   description:
     "United Precision Engineering Company (UPEC), an affiliate of Polyplastics (India), delivers design, engineering, tooling & production solutions for decorative automotive parts from Yamuna Nagar.",

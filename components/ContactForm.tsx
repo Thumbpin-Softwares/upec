@@ -71,7 +71,7 @@ export default function ContactForm() {
       </button>
       {sent && (
         <div id="form-status" className="mt-3.5 text-[.92rem] font-semibold text-[#0f8b52]">
-          Thanks! Your message has been noted — our team will get back to you shortly.
+          Thanks! Your message has been noted. Our team will get back to you shortly.
         </div>
       )}
     </form>

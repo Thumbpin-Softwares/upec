@@ -5,7 +5,7 @@ import { User } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Our story, our team and the OEMs who trust UPEC — an affiliate of Polyplastics (India) — for decorative automotive tooling since 1996.",
+    "Our story, our team and the OEMs who trust UPEC, an affiliate of Polyplastics (India), for decorative automotive tooling since 1996.",
 };
 
 const MILESTONES = [
@@ -25,7 +25,7 @@ const VALUES: [string, string, string][][] = [
     ["I", "Integrity", "Being credibly honest to products, solutions and services extended."],
     ["C", "Creativity", "Approach to innovate value-added ideas and solutions."],
     ["R", "Respect", "For knowledge and ideas, more than ranks and positions."],
-    ["E", "Evolving", "New thoughts, new processes, new strategies — undeterred implementation."],
+    ["E", "Evolving", "New thoughts, new processes, new strategies, with undeterred implementation."],
   ],
   [
     ["E", "Excellence", "Consistency in competence to achieve perfection."],
@@ -56,7 +56,7 @@ export default function About() {
           <h2>From a captive tooling cell to a full-fledged deco mold specialist</h2>
           <p>
             United Precision Engineering Company (UPEC) is a proud affiliate of the Polyplastics
-            Group — India&apos;s #1 auto deco part maker, with over 50 years of group excellence.
+            Group, India&apos;s #1 auto deco part maker, with over 50 years of group excellence.
             UPEC&apos;s core competence is providing design, engineering, tooling and production
             solutions for decorative automotive parts.
           </p>
@@ -77,7 +77,7 @@ export default function About() {
       </Section>
 
       <Section tone="grey">
-        <SectionHead eyebrow="Our Values" title="I-CREATE — the principles behind every mold we build" />
+        <SectionHead eyebrow="Our Values" title="I-CREATE: the principles behind every mold we build" />
         <div className="reveal grid grid-cols-1 gap-5 md:gap-x-15 md:gap-y-0 lg:grid-cols-2">
           {VALUES.map((col, i) => (
             <div key={i}>
