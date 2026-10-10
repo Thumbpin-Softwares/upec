@@ -40,9 +40,9 @@ const PROCESS = [
 
 const PRODUCTS = [
   { src: "/assets/img/products/grille-assembly-parts.jpg", alt: "ID decals and badge tooling", title: "ID Decals & Badges" },
-  { src: "/assets/img/products/facia-grille-exploded.jpg", alt: "Front facia decoratives tooling", title: "Front Facia Decoratives" },
-  { src: "/assets/img/products/wheel-cover-mold.jpg", alt: "Wheel cover decorative mold", title: "Wheel Decoratives" },
-  { src: "/assets/img/products/bumper-reinforcement.jpg", alt: "Bumper and exterior module decoratives", title: "Exterior Module Decoratives" },
+  { src: "/assets/img/products/front-grill.avif", alt: "Gloss black front grille", title: "Front Facia Decoratives" },
+  { src: "/assets/img/products/wheeldecorative.avif", alt: "Silver multi-spoke decorative wheel", title: "Wheel Decoratives" },
+  { src: "/assets/img/products/footsetp.avif", alt: "Aluminium side footsteps (running boards)", title: "Exterior Module Decoratives" },
 ];
 
 // Every file in public/assets/logo is shown; add or remove files to change the strip.

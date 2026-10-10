@@ -11,17 +11,17 @@ type Product = { src: string; alt: string; tag: string; title: string; text: str
 
 const INDUSTRY: Product[] = [
   { src: "/assets/img/products/grille-assembly-parts.jpg", alt: "ID decals and badge emblem tooling", tag: "Automotive", title: "ID Decals & Badges (Emblems)", text: "Precision emblem and badge tooling for brand identity across the vehicle body." },
-  { src: "/assets/img/products/facia-grille-exploded.jpg", alt: "Front facia decorative tooling exploded view", tag: "Automotive", title: "Front Facia Decoratives", text: "Grille and front-module decorative components, tooled for Hi-Gloss and chrome finishes." },
+  { src: "/assets/img/products/front-grill.avif", alt: "Gloss black front grille", tag: "Automotive", title: "Front Facia Decoratives", text: "Grille and front-module decorative components, tooled for Hi-Gloss and chrome finishes." },
   { src: "/assets/img/products/mold-tool-progression.jpg", alt: "Rear door decorative tooling", tag: "Automotive", title: "Rear Door Decoratives", text: "Rear module and door decorative tooling engineered for consistent fit and finish." },
   { src: "/assets/img/products/mold-base-render.jpg", alt: "Side panel and door decorative tooling", tag: "Automotive", title: "Side Panel / Door Decoratives", text: "Side panel trims and door decoratives tooled to tight cosmetic tolerances." },
   { src: "/assets/img/photos/shop-floor-cnc.jpg", alt: "Cockpit decoration tooling", tag: "Interior", title: "Cockpit Decorations", text: "Interior decorative components tooled for precision assembly fit." },
-  { src: "/assets/img/products/wheel-cover-mold.jpg", alt: "Wheel cover decorative mold cavity", tag: "In-Motion", title: "Decoratives in Motion (Wheel Parts)", text: "Wheel covers and rotating decorative parts, engineered for balance and finish." },
+  { src: "/assets/img/products/wheeldecorative.avif", alt: "Silver multi-spoke decorative wheel", tag: "In-Motion", title: "Decoratives in Motion (Wheel Parts)", text: "Wheel covers and rotating decorative parts, engineered for balance and finish." },
   { src: "/assets/img/products/wheel-cover-tool.jpg", alt: "Accessories and illumination tooling", tag: "Accessories", title: "Accessories & Illumination", text: "Decorative accessory and illumination-ready component tooling." },
   { src: "/assets/img/products/bumper-reinforcement.jpg", alt: "Performance parts tooling", tag: "Performance", title: "Performance Parts", text: "Functional-decorative components engineered for performance applications." },
 ];
 
 const PROGRAMS: Product[] = [
-  { src: "/assets/img/products/facia-grille-exploded.jpg", alt: "Renault Duster front exterior decorative tooling", tag: "100+ Parts · 12 Month KO–SOP", title: "Renault Duster", text: "Front & rear exterior decoratives, ornaments and badges across 3 plant and 4 tooling locations." },
+  { src: "/assets/img/products/front-grill.avif", alt: "Front exterior decorative grille", tag: "100+ Parts · 12 Month KO–SOP", title: "Renault Duster", text: "Front & rear exterior decoratives, ornaments and badges across 3 plant and 4 tooling locations." },
   { src: "/assets/img/products/grille-assembly-parts.jpg", alt: "Renault Captur front grille and rear panel decorative tooling", tag: "20 Parts · 12 Month KO–SOP", title: "Renault Captur", text: "Front grille, door side decoratives and rear panel decoratives across 4 plant locations." },
   { src: "/assets/img/products/bumper-reinforcement.jpg", alt: "Renault Kiger and Triber exterior decorative tooling", tag: "34+ Parts · 16 Month KO–SOP", title: "Renault Kiger / Triber", text: "Front & rear exterior module decoratives across 3 plant and 4 tooling locations." },
   { src: "/assets/img/products/wheel-cover-tool.jpg", alt: "Hi-gloss decorative wheel cover tooling", tag: "In-Motion Decorative", title: "Hi-Gloss Wheel Cover Tooling", text: "Decorative wheel cover mold engineered for a consistent high-gloss finish in motion." },
@@ -55,7 +55,7 @@ export default function OurProducts() {
         </SectionHead>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-3">
           {PROGRAMS.map((p) => (
-            <ProductCard key={p.title} {...p} cover />
+            <ProductCard key={p.title} {...p} />
           ))}
         </div>
       </Section>

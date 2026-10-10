@@ -13,7 +13,7 @@ const PHOTOS: Photo[] = [
   { src: "/assets/img/photos/engineering-team.jpg", alt: "Design and CAE engineering studio", caption: "Design & CAE engineering studio", title: "Engineering Studio", subtitle: "Design & CAE Team" },
   { src: "/assets/img/photos/shop-floor-edm.jpg", alt: "EDM and wire-cut machine shop floor", caption: "EDM & wire-cut shop floor", title: "Shop Floor", subtitle: "EDM & Wire-Cut Section" },
   { src: "/assets/img/photos/shop-floor-cnc.jpg", alt: "High speed CNC machining centre", caption: "High-speed CNC machining centre", title: "CNC Machining", subtitle: "High-Speed Machining Centre" },
-  { src: "/assets/img/products/facia-grille-exploded.jpg", alt: "Front facia decorative exploded engineering view", caption: "Front facia decorative: exploded engineering view", title: "Facia Decorative", subtitle: "Exploded Engineering View" },
+  { src: "/assets/img/products/front-grill.avif", alt: "Gloss black front grille", caption: "Front grille: Hi-Gloss black finish", title: "Front Grille", subtitle: "Hi-Gloss Finished Part" },
   { src: "/assets/img/products/wheel-cover-mold.jpg", alt: "Wheel cover decorative mold cavity", caption: "Wheel cover decorative mold cavity", title: "Wheel Decorative", subtitle: "Mold Cavity Detail" },
   { src: "/assets/img/products/wheel-cover-tool.jpg", alt: "Complete wheel cover tool assembly", caption: "Complete wheel cover tool assembly", title: "Wheel Decorative", subtitle: "Full Tool Assembly" },
   { src: "/assets/img/products/mold-base-render.jpg", alt: "Full mold base assembly render", caption: "Full mold base assembly render", title: "Tooling Craft", subtitle: "Mold Base Assembly" },

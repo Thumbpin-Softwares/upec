@@ -204,7 +204,6 @@ export function ProductCard({
   title,
   tag,
   text,
-  cover,
   titleClassName = "",
 }: {
   src: string;
@@ -212,14 +211,13 @@ export function ProductCard({
   title: string;
   tag?: string;
   text?: string;
-  cover?: boolean;
   titleClassName?: string;
 }) {
   return (
     <div className="reveal overflow-hidden rounded-card border border-grey-200 bg-white shadow-sm transition-[box-shadow,translate] hover:-translate-y-1.25 hover:shadow-md">
       <div className="aspect-4/3 overflow-hidden bg-grey-100">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} className={`size-full ${cover ? "object-cover" : "object-contain p-3.5"}`} />
+        <img src={src} alt={alt} className="size-full object-cover" />
       </div>
       <div className="px-5.5 py-5">
         {tag && (
