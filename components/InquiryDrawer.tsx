@@ -32,7 +32,7 @@ export default function InquiryDrawer() {
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
         aria-expanded={open}
-        className={`fixed top-1/2 right-0 z-990 flex -translate-y-1/2 rotate-180 cursor-pointer items-center rounded-r-md bg-cyan-500 px-2.5 py-4 text-sm font-semibold tracking-[.12em] text-navy-900 uppercase shadow-md transition-[background-color,translate,opacity] [writing-mode:vertical-rl] hover:bg-cyan-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-800 ${
+        className={`fixed top-1/2 right-0 z-990 flex -translate-y-1/2 rotate-180 cursor-pointer items-center rounded-r-md border border-l-0 border-grey-200 bg-white px-2.5 py-4 text-sm font-semibold tracking-[.12em] text-navy-800 uppercase shadow-md transition-[background-color,color,translate,opacity] [writing-mode:vertical-rl] hover:bg-grey-100 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-800 ${
           open ? "pointer-events-none translate-x-full opacity-0" : ""
         }`}
       >
