@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -130,14 +131,22 @@ export function CtaBanner({
   className?: string;
 }) {
   return (
-    <div
-      className={`reveal relative overflow-hidden rounded-2xl bg-linear-120 from-navy-900 to-navy-700 px-4.5 py-8 text-center text-white before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_15%_20%,rgba(23,179,217,.28),transparent_40%)] *:relative *:z-2 xs:px-5.5 xs:py-10 md:p-14 ${className}`}
-    >
-      <h2 className="text-white max-md:text-[1.5rem]">{title}</h2>
-      <p className="text-[#cfe0ef]">{text}</p>
-      <Link href={href} className={btn("primary")}>
-        {label}
-      </Link>
+    <div className={`reveal relative isolate overflow-hidden rounded-md bg-navy-900 text-white ${className}`}>
+      {/* Faint engineering grid, fading out towards the text side */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(255_255_255/.05)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/.05)_1px,transparent_1px)] bg-size-[36px_36px] [mask-image:linear-gradient(to_left,black,transparent_75%)]" />
+      <div className="absolute -right-24 -bottom-32 -z-10 size-96 rounded-full bg-cyan-500/20 blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-0.5 bg-linear-to-r from-cyan-500 via-cyan-500/40 to-transparent" />
+
+      <div className="flex flex-col gap-7 px-6 py-10 sm:px-10 md:flex-row md:items-center md:justify-between md:gap-12 md:px-14 md:py-14">
+        <div className="max-w-2xl">
+          <h2 className="mb-3 text-[1.6rem] text-white md:text-[2rem]">{title}</h2>
+          <p className="mb-0 text-[1.02rem] text-[#b7c8d9]">{text}</p>
+        </div>
+        <Link href={href} className={`${btn("primary")} group flex-none max-md:w-full`}>
+          {label}
+          <ArrowRight className="size-4 transition-[translate] group-hover:translate-x-1" />
+        </Link>
+      </div>
     </div>
   );
 }

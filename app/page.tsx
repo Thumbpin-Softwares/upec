@@ -175,10 +175,10 @@ export default function Home() {
 
       <Section>
         <CtaBanner
-          title="Have a decorative tooling program in mind?"
+          title="Have a tooling program in hand?"
           text="Let's talk about your parts, timelines and finish requirements."
           href="/contact"
-          label="Contact Our Team"
+          label="Contact our team"
         />
       </Section>
     </>
