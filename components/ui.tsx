@@ -157,6 +157,26 @@ export function ClientStrip({ clients }: { clients: string[] }) {
   );
 }
 
+export function LogoGrid({ logos }: { logos: { src: string; name: string }[] }) {
+  return (
+    // Inner lines only: every cell draws its right + bottom edge, and the wrapper
+    // clips the last column's right edge and last row's bottom edge (-1px overhang)
+    <div className="reveal overflow-hidden">
+      <div className="-mr-px -mb-px grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+        {logos.map((logo) => (
+          <div
+            key={logo.src}
+            className="flex h-28 items-center justify-center border-r border-b border-grey-400/50 px-5 sm:h-32"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo.src} alt={logo.name} loading="lazy" className="max-h-12 max-w-[75%] object-contain sm:max-h-14" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Card({ icon, title, children }: { icon: ReactNode; title: string; children: ReactNode }) {
   return (
     <div className={`reveal ${cardClass}`}>

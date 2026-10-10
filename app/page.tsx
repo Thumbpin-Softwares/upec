@@ -1,7 +1,9 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import Stats from "@/components/Stats";
-import { btn, cardSurface, ClientStrip, container, CtaBanner, Eyebrow, IconBadge, ProductCard, Section, SectionHead } from "@/components/ui";
+import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
 import { Check, CircleCheckBig, Layers, Settings, Truck } from "lucide-react";
 
 const HERO_IMAGES = [
@@ -43,10 +45,14 @@ const PRODUCTS = [
   { src: "/assets/img/products/bumper-reinforcement.jpg", alt: "Bumper and exterior module decoratives", title: "Exterior Module Decoratives" },
 ];
 
-const CLIENTS = [
-  "Maruti Suzuki", "Tata Motors", "Renault", "Nissan", "Toyota", "Honda",
-  "Hyundai", "Kia", "Ford", "Royal Enfield", "Hero MotoCorp", "Stellantis",
-];
+// Every file in public/assets/logo is shown; add or remove files to change the strip.
+// Read at build time, so the static export picks up new logos on the next build.
+const LOGO_DIR = path.join(process.cwd(), "public/assets/logo");
+const LOGOS = fs
+  .readdirSync(LOGO_DIR)
+  .filter((f) => /\.(svg|png|jpe?g|webp)$/i.test(f))
+  .sort()
+  .map((f) => ({ src: `/assets/logo/${f}`, name: path.parse(f).name.replace(/[_-]+/g, " ") }));
 
 export default function Home() {
   return (
@@ -164,7 +170,7 @@ export default function Home() {
 
       <Section tone="grey">
         <SectionHead eyebrow="Trusted By" title="Powering decorative programs for leading OEMs" />
-        <ClientStrip clients={CLIENTS} />
+        <LogoGrid logos={LOGOS} />
       </Section>
 
       <Section>
