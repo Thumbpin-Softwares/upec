@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Card, cardClass, CtaBanner, Eyebrow, PageHeader, Section, SectionHead, TagCloud, Timeline } from "@/components/ui";
+import { Card, CtaBanner, Eyebrow, PageHeader, Section, SectionHead, TagCloud, Timeline } from "@/components/ui";
 import { Bike, Car, LinkIcon, Tractor } from "lucide-react";
 
 export const metadata: Metadata = {

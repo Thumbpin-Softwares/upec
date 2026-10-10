@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { ContactLine, CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
+import { CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
 import { CLIENT_LOGOS } from "@/lib/logos";
-import { User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
