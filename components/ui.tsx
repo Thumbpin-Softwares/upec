@@ -151,21 +151,6 @@ export function CtaBanner({
   );
 }
 
-export function ClientStrip({ clients }: { clients: string[] }) {
-  return (
-    <div className="reveal grid grid-cols-2 gap-2.5 xs:gap-3.5 md:grid-cols-3 lg:grid-cols-6">
-      {clients.map((c) => (
-        <div
-          className="flex items-center justify-center rounded-lg border border-grey-200 bg-white px-1.5 py-3.5 text-center text-[.82rem] font-bold text-navy-800 transition-all hover:-translate-y-0.75 hover:border-cyan-500 hover:text-blue-600 xs:px-2.5 xs:py-4.5 xs:text-[.98rem]"
-          key={c}
-        >
-          {c}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export function LogoGrid({ logos }: { logos: { src: string; name: string }[] }) {
   return (
     // Inner lines only: every cell draws its right + bottom edge, and the wrapper
@@ -202,29 +187,25 @@ export function ProductCard({
   src,
   alt,
   title,
-  tag,
   text,
   titleClassName = "",
+  contain,
 }: {
   src: string;
   alt: string;
   title: string;
-  tag?: string;
   text?: string;
   titleClassName?: string;
+  /** Show the whole image instead of cropping, for wide shots on a white background */
+  contain?: boolean;
 }) {
   return (
     <div className="reveal overflow-hidden rounded-card border border-grey-200 bg-white shadow-sm transition-[box-shadow,translate] hover:-translate-y-1.25 hover:shadow-md">
-      <div className="aspect-4/3 overflow-hidden bg-grey-100">
+      <div className={`aspect-4/3 overflow-hidden ${contain ? "bg-white" : "bg-grey-100"}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} className="size-full object-cover" />
+        <img src={src} alt={alt} className={`size-full ${contain ? "object-contain" : "object-cover"}`} />
       </div>
       <div className="px-5.5 py-5">
-        {tag && (
-          <span className="mb-2.5 inline-block rounded-[20px] bg-[#e6f2fb] px-2.5 py-1 text-[.7rem] font-bold uppercase tracking-wider text-blue-600">
-            {tag}
-          </span>
-        )}
         <h3 className={titleClassName}>{title}</h3>
         {text && <p>{text}</p>}
       </div>

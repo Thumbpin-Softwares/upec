@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ClientStrip, ContactLine, CtaBanner, Eyebrow, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
+import { ContactLine, CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
+import { CLIENT_LOGOS } from "@/lib/logos";
 import { User } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -20,23 +21,15 @@ const MILESTONES = [
   },
 ];
 
-const VALUES: [string, string, string][][] = [
-  [
-    ["I", "Integrity", "Being credibly honest to products, solutions and services extended."],
-    ["C", "Creativity", "Approach to innovate value-added ideas and solutions."],
-    ["R", "Respect", "For knowledge and ideas, more than ranks and positions."],
-    ["E", "Evolving", "New thoughts, new processes, new strategies, with undeterred implementation."],
-  ],
-  [
-    ["E", "Excellence", "Consistency in competence to achieve perfection."],
-    ["A", "Accountability", "Undeterred responsibility for performance and potential results."],
-    ["T", "Teamwork", "Sense of togetherness and support amongst stakeholders, wherever it matters."],
-  ],
-];
-
-const CLIENTS = [
-  "Maruti Suzuki", "Tata Motors", "Renault", "Nissan", "Toyota", "Honda", "Hyundai", "Kia",
-  "Ford", "General Motors", "Royal Enfield", "Hero MotoCorp", "Stellantis", "MG Motor", "TAFE", "Bajaj Auto",
+// Order spells I-C-R-E-A-T-E down the list
+const VALUES: [string, string, string][] = [
+  ["I", "Integrity", "Being credibly honest to products, solutions and services extended."],
+  ["C", "Creativity", "Approach to innovate value-added ideas and solutions."],
+  ["R", "Respect", "For knowledge and ideas, more than ranks and positions."],
+  ["E", "Evolving", "New thoughts, new processes, new strategies, with undeterred implementation."],
+  ["A", "Accountability", "Undeterred responsibility for performance and potential results."],
+  ["T", "Teamwork", "Sense of togetherness and support amongst stakeholders, wherever it matters."],
+  ["E", "Excellence", "Consistency in competence to achieve perfection."],
 ];
 
 export default function About() {
@@ -78,23 +71,22 @@ export default function About() {
 
       <Section tone="grey">
         <SectionHead eyebrow="Our Values" title="I-CREATE: the principles behind every mold we build" />
-        <div className="reveal grid grid-cols-1 gap-5 md:gap-x-15 md:gap-y-0 lg:grid-cols-2">
-          {VALUES.map((col, i) => (
-            <div key={i}>
-              {col.map(([letter, name, text]) => (
-                <div className="flex items-start gap-4.5 border-b border-grey-200 py-4.5 last:border-b-0" key={name}>
-                  <div className="flex size-11.5 flex-none items-center justify-center rounded-card bg-navy-800 text-[1.2rem] font-bold text-cyan-400">
-                    {letter}
-                  </div>
-                  <div>
-                    <h4 className="mb-0.75 text-[1.02rem]">{name}</h4>
-                    <p className="m-0 text-[.92rem]">{text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <ul className="reveal mx-auto max-w-3xl">
+          {VALUES.map(([letter, name, text]) => (
+            <li
+              key={name}
+              className="grid grid-cols-[3.5rem_1fr] items-center gap-5 border-b border-grey-200 py-6 last:border-b-0 md:grid-cols-[6rem_1fr] md:gap-8 md:py-7"
+            >
+              <span className="text-center text-6xl leading-none font-bold text-navy-800 md:text-8xl" aria-hidden="true">
+                {letter}
+              </span>
+              <div>
+                <h4 className="mb-1 text-[1.15rem] md:text-[1.3rem]">{name}</h4>
+                <p className="m-0 text-[.95rem] md:text-base">{text}</p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </Section>
 
       <Section id="team" className="grid grid-cols-1 items-center gap-5 md:gap-14 lg:grid-cols-2">
@@ -110,27 +102,17 @@ export default function About() {
           <Eyebrow>Our Team</Eyebrow>
           <h2>170+ people. One blend of experience and fresh engineering talent.</h2>
           <p>
-            Our team runs round-the-clock operations across an 8000+ sqm shop floor, combining
-            seasoned toolmakers with a new generation of design and CAE engineers trained on
-            Hexagon, CATIA, Siemens NX, Autodesk PowerShape, Cadmould, Ansys and Creo.
+            Our team runs round-the-clock operations across an 8000+ sqm shop floor, combining seasoned toolmakers with a new generation of design, CAE engineers and state of the machine and equipments.
           </p>
-          <div className="mt-6 rounded-card bg-navy-800 p-8.5 text-white">
-            <h3 className="text-[1.05rem] text-white">Business Leadership</h3>
-            <ContactLine icon={<User />} label="Aseem Kumar">
-              <span>Business Head, UPEC</span>
-              <br />
-              <a href="mailto:COO@UPEC.co.in">COO@UPEC.co.in</a>
-            </ContactLine>
-          </div>
         </div>
       </Section>
 
-      <Section id="clients" tone="navy">
-        <SectionHead eyebrow="Our Clients" title="Trusted across passenger, commercial & two-wheeler segments">
+      <Section id="clients" tone="grey">
+        <SectionHead eyebrow="Trusted By" title="Trusted across passenger, commercial & two-wheeler segments">
           Our decorative tooling programs power brand badges, wheel decoratives, facia &amp; module
           decoratives, interior decoratives and accessories for:
         </SectionHead>
-        <ClientStrip clients={CLIENTS} />
+        <LogoGrid logos={CLIENT_LOGOS} />
       </Section>
 
       <Section>

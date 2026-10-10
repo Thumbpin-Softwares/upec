@@ -53,14 +53,12 @@ export default function WhatWeDo() {
 
       <Section tone="grey">
         <SectionHead eyebrow="Engineering Capabilities" title="Concept to tool manufacturing, in-house">
-          Supported by Hexagon, Visi, CATIA, Siemens NX, Autodesk PowerShape/AutoCAD, Elsyca,
-          Cadmould, Ansys and Creo.
         </SectionHead>
         <TagCloud tags={CAPABILITIES} />
       </Section>
 
       <Section id="who-we-work-for">
-        <SectionHead eyebrow="Who We Work For" title="OEMs and Tier-1s building the vehicles you see on the road">
+        <SectionHead eyebrow="Who We Work For" title="Automotive OEM’s and Tier 1’s">
           We partner with passenger vehicle, two-wheeler and commercial vehicle manufacturers across
           every decorative touchpoint of the vehicle.
         </SectionHead>
@@ -77,16 +75,6 @@ export default function WhatWeDo() {
           <Card icon={<Tractor />} title="Commercial & Farm Vehicles">
             Emblems and decorative badging for commercial and agricultural equipment brands.
           </Card>
-        </div>
-        <div className="reveal mt-10 grid grid-cols-1 gap-5 md:gap-6 lg:grid-cols-2">
-          <div className={`${cardClass} text-center`}>
-            <h3 className="mb-1">30T &ndash; 1300T</h3>
-            <p className="mb-0 text-[.94rem]">Press size capability, with max lift capacity of 10,000 kg</p>
-          </div>
-          <div className={`${cardClass} text-center`}>
-            <h3 className="mb-1">Hi-Gloss &middot; IMD &middot; 2K &middot; Kromex</h3>
-            <p className="mb-0 text-[.94rem]">Specialised decorative finish technologies</p>
-          </div>
         </div>
       </Section>
 

@@ -34,14 +34,7 @@ const NAV: NavItem[] = [
       { href: "/what-we-do#who-we-work-for", label: "Who We Work For" },
     ],
   },
-  {
-    href: "/our-products",
-    label: "Our Products",
-    children: [
-      { href: "/our-products#industry-wise", label: "Industry Wise" },
-      { href: "/our-products#final-products", label: "Final Products" },
-    ],
-  },
+  { href: "/our-products", label: "Our Products" },
   { href: "/media", label: "Media" },
   { href: "/contact", label: "Contact Us" },
 ];

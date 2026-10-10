@@ -1,8 +1,7 @@
-import fs from "node:fs";
-import path from "node:path";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import Stats from "@/components/Stats";
+import { CLIENT_LOGOS } from "@/lib/logos";
 import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
 import { Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
 
@@ -39,20 +38,11 @@ const PROCESS = [
 ];
 
 const PRODUCTS = [
-  { src: "/assets/img/products/grille-assembly-parts.jpg", alt: "ID decals and badge tooling", title: "ID Decals & Badges" },
+  { src: "/assets/img/products/badge-decalls.jpg", alt: "Chrome Renault and Kwid badges", contain: true, title: "ID Decals & Badges" },
   { src: "/assets/img/products/front-grill.avif", alt: "Gloss black front grille", title: "Front Facia Decoratives" },
   { src: "/assets/img/products/wheeldecorative.avif", alt: "Silver multi-spoke decorative wheel", title: "Wheel Decoratives" },
   { src: "/assets/img/products/footsetp.avif", alt: "Aluminium side footsteps (running boards)", title: "Exterior Module Decoratives" },
 ];
-
-// Every file in public/assets/logo is shown; add or remove files to change the strip.
-// Read at build time, so the static export picks up new logos on the next build.
-const LOGO_DIR = path.join(process.cwd(), "public/assets/logo");
-const LOGOS = fs
-  .readdirSync(LOGO_DIR)
-  .filter((f) => /\.(svg|png|jpe?g|webp)$/i.test(f))
-  .sort()
-  .map((f) => ({ src: `/assets/logo/${f}`, name: path.parse(f).name.replace(/[_-]+/g, " ") }));
 
 export default function Home() {
   return (
@@ -170,7 +160,7 @@ export default function Home() {
 
       <Section tone="grey">
         <SectionHead eyebrow="Trusted By" title="Powering decorative programs for leading OEMs" />
-        <LogoGrid logos={LOGOS} />
+        <LogoGrid logos={CLIENT_LOGOS} />
       </Section>
 
       <Section>
