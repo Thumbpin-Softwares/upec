@@ -4,7 +4,7 @@ import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import Stats from "@/components/Stats";
 import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
-import { Check, CircleCheckBig, Layers, Settings, Truck } from "lucide-react";
+import { Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
 
 const HERO_IMAGES = [
   "/assets/img/photos/shop-floor-cnc.jpg",
@@ -22,7 +22,7 @@ const PROCESS = [
     icon: <Settings />,
     title: "Tooling Development",
     summary: "In-house tool build, from feasibility to finished mold.",
-    points: ["Tool design & manufacturing feasibility", "Gauges & fixtures", "Full tool manufacturing", "30T\u20131300T press capability"],
+    points: ["Tool design & manufacturing feasibility", "Gauges & fixtures", "Full tool manufacturing"],
   },
   {
     icon: <CircleCheckBig />,
@@ -34,7 +34,7 @@ const PROCESS = [
     icon: <Truck />,
     title: "Delivery & Support",
     summary: "Transparent tracking right through to delivery readiness.",
-    points: ["Weekly progression updates with pictures", "Part submission with reports", "Issue resolution", "Delivery readiness sign-off"],
+    points: ["Weekly progression updates with pictures", "Part submission with reports", "resolution through delivery readiness and post delivery support"],
   },
 ];
 
@@ -85,10 +85,10 @@ export default function Home() {
       <div className={container}>
         <Stats
           stats={[
-            { count: 170, suffix: "+", label: "Team Members" },
-            { count: 8000, suffix: "+", label: "Sqm Facility Area" },
-            { count: 4000, suffix: "+", label: "Molds Delivered" },
-            { text: "30T–1300T", label: "Press Size" },
+            { count: 170, suffix: "+", label: "Team Members", icon: <Users /> },
+            { count: 8000, suffix: "+", label: "Sqm Facility Area", icon: <Factory /> },
+            { count: 4000, suffix: "+", label: "Molds Delivered", icon: <Boxes /> },
+            { text: "10000 Kg", label: "Max Lift Capacity", icon: <Weight /> },
           ]}
         />
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -110,11 +110,13 @@ export default function Header() {
                   }}
                 >
                   {item.label}
-                  {item.children && <ChevronDown className="mt-0.5 size-3.5 opacity-70" />}
+                  {item.children && (
+                    <ChevronDown className="mt-0.5 size-3.5 opacity-70 transition-[rotate] xl:group-focus-within:rotate-180 xl:group-hover:rotate-180" />
+                  )}
                 </Link>
                 {item.children && (
                   <div
-                    className={`mb-2 rounded-card bg-grey-100 p-2.5 xl:invisible xl:absolute xl:top-full xl:left-0 xl:mb-0 xl:block xl:min-w-60 xl:translate-y-2 xl:bg-white xl:opacity-0 xl:shadow-lg xl:transition-all xl:group-hover:visible xl:group-hover:translate-y-0 xl:group-hover:opacity-100 ${
+                    className={`mb-2 rounded-card bg-grey-100 p-2.5 xl:invisible xl:absolute xl:top-full xl:left-2 xl:mb-0 xl:block xl:min-w-56 xl:translate-y-1 xl:rounded-none xl:rounded-b-md xl:border xl:border-t-2 xl:border-grey-200 xl:border-t-cyan-500 xl:bg-white xl:px-0 xl:py-2 xl:opacity-0 xl:shadow-[0_12px_32px_rgb(6_26_51/0.12)] xl:transition-[opacity,translate,visibility] xl:duration-150 xl:ease-out xl:group-focus-within:visible xl:group-focus-within:translate-y-0 xl:group-focus-within:opacity-100 xl:group-hover:visible xl:group-hover:translate-y-0 xl:group-hover:opacity-100 ${
                       open ? "block" : "hidden"
                     }`}
                   >
@@ -123,9 +125,10 @@ export default function Header() {
                         key={child.href}
                         href={child.href}
                         onClick={closeMobileNav}
-                        className="block rounded-md px-3.5 py-2.75 text-[.92rem] font-medium text-black hover:bg-grey-200 hover:text-blue-600 xl:hover:bg-grey-100"
+                        className="group/item flex items-center justify-between gap-4 rounded-md px-3.5 py-2.75 text-[.92rem] font-medium text-black transition-colors hover:bg-grey-200 hover:text-blue-600 xl:rounded-none xl:border-l-2 xl:border-transparent xl:px-5 xl:py-2.5 xl:hover:border-cyan-500 xl:hover:bg-grey-100 xl:focus-visible:border-cyan-500 xl:focus-visible:bg-grey-100 xl:focus-visible:outline-none"
                       >
                         {child.label}
+                        <ChevronRight className="hidden size-3.5 -translate-x-1 text-cyan-500 opacity-0 transition-[opacity,translate] group-hover/item:translate-x-0 group-hover/item:opacity-100 xl:block" />
                       </Link>
                     ))}
                   </div>

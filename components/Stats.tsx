@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
-type Stat = { label: string } & ({ count: number; suffix?: string } | { text: string });
+type Stat = { label: string; icon?: ReactNode } & ({ count: number; suffix?: string } | { text: string });
 
 const DURATION = 1400;
 
@@ -57,6 +57,11 @@ export default function Stats({ stats }: { stats: Stat[] }) {
           className="bg-white px-2.5 py-4.5 text-center xs:px-3.5 xs:py-5.5 md:px-5 md:py-7"
           key={s.label}
         >
+          {s.icon && (
+            <span className="mx-auto mb-2.5 flex size-9 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-500 md:mb-3 md:size-11 [&_svg]:size-4.5 md:[&_svg]:size-5.5">
+              {s.icon}
+            </span>
+          )}
           <span className="block text-[1.4rem] font-bold text-navy-800 xs:text-[1.7rem] md:text-[2.1rem]">
             {"count" in s ? <Counter target={s.count} suffix={s.suffix} run={run} /> : s.text}
           </span>
