@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
+import InquiryDrawer from "@/components/InquiryDrawer";
 import Stats from "@/components/Stats";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
@@ -47,6 +48,7 @@ const PRODUCTS = [
 export default function Home() {
   return (
     <>
+      <InquiryDrawer />
       <section
         className="relative flex items-center overflow-hidden bg-navy-900 pt-16 pb-20 text-white after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_82%_20%,rgba(23,179,217,.25),transparent_45%)] sm:pt-20 sm:pb-24 md:min-h-160 md:py-0"
       >

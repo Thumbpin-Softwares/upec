@@ -19,8 +19,11 @@ function Field({ id, label, children }: { id: string; label: string; children: R
 
 const row = "grid grid-cols-1 gap-4.5 lg:grid-cols-2";
 
-// Front-end placeholder until connected to a backend / mail handler
-export default function ContactForm() {
+/**
+ * Front-end placeholder until connected to a backend / mail handler.
+ * `stacked` keeps every field full-width, for narrow containers like the inquiry drawer.
+ */
+export default function ContactForm({ stacked }: { stacked?: boolean }) {
   const [sent, setSent] = useState(false);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -31,15 +34,10 @@ export default function ContactForm() {
 
   return (
     <form id="contact-form" onSubmit={onSubmit}>
-      <div className={row}>
-        <Field id="name" label="Full Name">
-          <input type="text" id="name" name="name" required placeholder="Your name" className={control} />
-        </Field>
-        <Field id="company" label="Company">
-          <input type="text" id="company" name="company" placeholder="Your company" className={control} />
-        </Field>
-      </div>
-      <div className={row}>
+      <Field id="name" label="Full Name / Company Name">
+        <input type="text" id="name" name="name" required placeholder="Your name or company" className={control} />
+      </Field>
+      <div className={stacked ? "" : row}>
         <Field id="email" label="Email">
           <input type="email" id="email" name="email" required placeholder="you@company.com" className={control} />
         </Field>
@@ -47,15 +45,6 @@ export default function ContactForm() {
           <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" className={control} />
         </Field>
       </div>
-      <Field id="subject" label="Subject">
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          placeholder="e.g. New Tooling Program Enquiry"
-          className={control}
-        />
-      </Field>
       <Field id="message" label="Message">
         <textarea
           id="message"
