@@ -4,8 +4,10 @@
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Images keep their names when edited, so browsers must re-check them on every
+# load (cheap 304s via ETag) or they keep showing the old version for days
 /assets/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*
   X-Content-Type-Options: nosniff
