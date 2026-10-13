@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
-import { CLIENT_LOGOS } from "@/lib/logos";
+import { CLIENT_LOGOS } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About Us",
