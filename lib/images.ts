@@ -13,6 +13,9 @@ const titleCase = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
 /** "royal_enfield" / "diwali-2025" -> "royal enfield" / "diwali 2025" */
 const humanize = (s: string) => s.replace(/[_-]+/g, " ").trim();
 
+/** Leading order number, e.g. the "01-" in "01-diwali"; used for sorting, never shown */
+const stripOrder = (s: string) => s.replace(/^\d+[\s_-]*/, "");
+
 /** All images in `public/<dir>`, sorted by file name; [] if the folder is missing or empty. */
 function readImages(dir: string) {
   const abs = path.join(process.cwd(), "public", dir);
@@ -20,26 +23,63 @@ function readImages(dir: string) {
   return fs
     .readdirSync(abs)
     .filter((f) => IMAGE_EXT.test(f))
-    .sort()
-    .map((f) => ({ src: `/${dir}/${f}`, file: path.parse(f).name, name: humanize(path.parse(f).name) }));
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    // encodeURIComponent: file names like "image copy 2.png" contain spaces
+    .map((f) => ({ src: `/${dir}/${encodeURIComponent(f)}`, file: path.parse(f).name, name: humanize(path.parse(f).name) }));
 }
 
 /** Client logos: public/assets/logo (file name = brand name, e.g. Royal_Enfield.svg) */
 export const getClientLogos = () => readImages("assets/logo");
 
-/** Gallery photos captioned from their file names (diwali-2025.jpg -> "Diwali 2025") */
-function captionedPhotos(dir: string) {
-  return readImages(dir).map(({ src, name }) => {
-    const title = titleCase(name);
-    return { src, alt: title, caption: title, title };
+/** Camera / clipboard names like "image copy 2", "IMG_1234", "WhatsApp Image ..." say nothing about the photo */
+const GENERIC_NAME = /^(image|img|photo|pic|dsc|pxl|screenshot|whatsapp)\b/i;
+
+/** "newYear" / "02-vishwakarma_puja" -> "New Year" / "Vishwakarma Puja" */
+const folderTitle = (s: string) => titleCase(humanize(stripOrder(s).replace(/([a-z])([A-Z])/g, "$1 $2")));
+
+export type PhotoGroup = {
+  id: string;
+  /** Empty for photos placed directly in the section folder rather than a subfolder */
+  title: string;
+  photos: { src: string; alt: string; caption: string; title: string; subtitle?: string }[];
+};
+
+/**
+ * One group per subfolder of `public/<dir>` (e.g. celebrations/diwali, celebrations/holi),
+ * titled from the folder name. Each photo is captioned with that title, plus its own file
+ * name as a subtitle when the name is descriptive. Empty subfolders are skipped.
+ */
+function photoGroups(dir: string): PhotoGroup[] {
+  const abs = path.join(process.cwd(), "public", dir);
+  if (!fs.existsSync(abs)) return [];
+
+  const group = (id: string, title: string, sub: string): PhotoGroup => ({
+    id,
+    title,
+    photos: readImages(sub).map(({ src, file }, i) => {
+      const own = GENERIC_NAME.test(file) ? undefined : titleCase(humanize(stripOrder(file)));
+      const caption = own ? (title ? `${title}: ${own}` : own) : title;
+      return { src, alt: caption || `Photo ${i + 1}`, caption, title: title || own || "", subtitle: title ? own : undefined };
+    }),
   });
+
+  const folders = fs
+    .readdirSync(abs, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+  return [
+    ...folders.map((name) => group(stripOrder(name).toLowerCase(), folderTitle(name), `${dir}/${name}`)),
+    group("more", "", dir),
+  ].filter((g) => g.photos.length > 0);
 }
 
-/** Company events, visits, expos: public/assets/img/events */
-export const getEventPhotos = () => captionedPhotos("assets/img/events");
+/** Company events, visits, expos: public/assets/img/events/<event-name>/ */
+export const getEventGroups = () => photoGroups("assets/img/events");
 
-/** Festival celebrations: public/assets/img/celebrations */
-export const getCelebrationPhotos = () => captionedPhotos("assets/img/celebrations");
+/** Festival celebrations: public/assets/img/celebrations/<festival-name>/ */
+export const getCelebrationGroups = () => photoGroups("assets/img/celebrations");
 
 /**
  * Main photo gallery: public/assets/img/gallery.
@@ -50,8 +90,7 @@ export const getCelebrationPhotos = () => captionedPhotos("assets/img/celebratio
 export const getGalleryPhotos = () =>
   bento(
     readImages("assets/img/gallery").map(({ src, file }) => {
-      const [title, subtitle] = file
-        .replace(/^\d+[\s_-]*/, "")
+      const [title, subtitle] = stripOrder(file)
         .split("__")
         .map((part) => titleCase(humanize(part)));
       const caption = subtitle ? `${title}: ${subtitle}` : title;

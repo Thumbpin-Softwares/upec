@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import EventAlbums from "@/components/EventAlbums";
 import Gallery from "@/components/Gallery";
 import VideoEmbed from "@/components/VideoEmbed";
-import { getCelebrationPhotos, getEventPhotos, getGalleryPhotos } from "@/lib/images";
+import { getCelebrationGroups, getEventGroups, getGalleryPhotos } from "@/lib/images";
 import { CtaBanner, PageHeader, Section, SectionHead } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -13,9 +14,9 @@ export const metadata: Metadata = {
 export default function Media() {
   // Optional galleries after the (grey) photo gallery; tones alternate over the visible ones
   const photoSections = [
-    { id: "events", eyebrow: "Events", title: "Events & milestones", photos: getEventPhotos() },
-    { id: "celebrations", eyebrow: "Life at UPEC", title: "Festivals & celebrations", photos: getCelebrationPhotos() },
-  ].filter((sec) => sec.photos.length > 0);
+    { id: "events", eyebrow: "Events", title: "Events & milestones", groups: getEventGroups() },
+    { id: "celebrations", eyebrow: "Life at UPEC", title: "Festivals & celebrations", groups: getCelebrationGroups() },
+  ].filter((sec) => sec.groups.length > 0);
 
   return (
     <>
@@ -41,7 +42,8 @@ export default function Media() {
       {photoSections.map((sec, i) => (
         <Section key={sec.id} id={sec.id} tone={i % 2 ? "grey" : "white"}>
           <SectionHead eyebrow={sec.eyebrow} title={sec.title} />
-          <Gallery photos={sec.photos} />
+          {/* One album per subfolder, e.g. celebrations/diwali -> "Diwali" */}
+          <EventAlbums groups={sec.groups} />
         </Section>
       ))}
 
