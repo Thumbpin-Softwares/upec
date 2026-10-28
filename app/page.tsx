@@ -2,7 +2,7 @@ import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import InquiryDrawer from "@/components/InquiryDrawer";
 import Stats from "@/components/Stats";
-import { CLIENT_LOGOS } from "@/lib/images";
+import { getClientLogos } from "@/lib/images";
 import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
 import { Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
 
@@ -162,7 +162,7 @@ export default function Home() {
 
       <Section tone="grey">
         <SectionHead eyebrow="Trusted By" title="Powering decorative programs for leading OEMs" />
-        <LogoGrid logos={CLIENT_LOGOS} />
+        <LogoGrid logos={getClientLogos()} />
       </Section>
 
       <Section>

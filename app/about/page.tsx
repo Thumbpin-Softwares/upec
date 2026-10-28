@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
-import { CLIENT_LOGOS } from "@/lib/images";
+import { getClientLogos } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -111,7 +111,7 @@ export default function About() {
           Our decorative tooling programs power brand badges, wheel decoratives, facia &amp; module
           decoratives, interior decoratives and accessories for:
         </SectionHead>
-        <LogoGrid logos={CLIENT_LOGOS} />
+        <LogoGrid logos={getClientLogos()} />
       </Section>
 
       <Section>

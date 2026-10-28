@@ -17,6 +17,8 @@ bun run lint
 - `app/`: routes: `/`, `/about`, `/what-we-do`, `/our-products`, `/media`, `/contact`; `globals.css` holds the site stylesheet (CSS variables for the navy/cyan brand palette)
 - `components/`: header/nav, footer, shared section blocks, icons, and client components (scroll reveal, stat counters, gallery lightbox, contact form)
 - `public/assets/img/`: logo, plant photos and product/tooling renders from the company overview deck
+- `public/assets/img/gallery/`: the Media page's main photo gallery; every image in it is shown (jpg/png/webp/avif). Name files `<order>-<title>__<subtitle>`, e.g. `01-engineering-studio__design-and-CAE-team.jpg` shows as "Engineering Studio" / "Design And CAE Team". The number sets the order and isn't shown; the `__subtitle` part is optional. The first photo gets the large tile and wide tiles are chosen automatically so rows stay full. These are copies, so deleting one here doesn't affect other pages.
+- `public/assets/img/events/`: company event photos (expos, visits, milestones) for the Media page's "Events & milestones" section. Works exactly like `celebrations/` below.
 - `public/assets/img/celebrations/`: festival & event photos for the Media page. Drop images in (jpg/png/webp/avif) and rebuild; the "Festivals & celebrations" section appears automatically and is hidden while the folder is empty. The file name becomes the caption: `diwali-2025.jpg` shows as "Diwali 2025".
 - `public/assets/logo/`: client logos, shown on the home and About pages. The file name becomes the brand name: `Royal_Enfield.svg` shows as "Royal Enfield".
 
