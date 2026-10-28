@@ -28,8 +28,43 @@ function readImages(dir: string) {
     .map((f) => ({ src: `/${dir}/${encodeURIComponent(f)}`, file: path.parse(f).name, name: humanize(path.parse(f).name) }));
 }
 
+/** Width / height of an SVG (from its viewBox, else width/height) or PNG (from its header); undefined if unknown */
+function aspectRatio(file: string): number | undefined {
+  try {
+    if (file.endsWith(".png")) {
+      const head = fs.readFileSync(file).subarray(16, 24);
+      return head.readUInt32BE(0) / head.readUInt32BE(4);
+    }
+    if (file.endsWith(".svg")) {
+      const tag = fs.readFileSync(file, "utf8").match(/<svg\b[^>]*>/)?.[0] ?? "";
+      const vb = tag.match(/viewBox="([^"]+)"/)?.[1].trim().split(/[\s,]+/).map(Number);
+      if (vb?.length === 4 && vb[3] > 0) return vb[2] / vb[3];
+      const w = parseFloat(tag.match(/\bwidth="([\d.]+)/)?.[1] ?? "");
+      const h = parseFloat(tag.match(/\bheight="([\d.]+)/)?.[1] ?? "");
+      if (w > 0 && h > 0) return w / h;
+    }
+  } catch {}
+  return undefined;
+}
+
+/**
+ * Optical size tweaks for logos whose artwork reads lighter than its shape suggests
+ * (thin strokes, small taglines, fine detail). Keyed by file name without extension.
+ */
+const LOGO_SCALE: Record<string, number> = {
+  Ashok_Leyland: 1.35,
+  BharatBenz: 1.2,
+  Nissan: 1.15,
+  Stellantis: 1.25,
+};
+
 /** Client logos: public/assets/logo (file name = brand name, e.g. Royal_Enfield.svg) */
-export const getClientLogos = () => readImages("assets/logo");
+export const getClientLogos = () =>
+  readImages("assets/logo").map((logo) => ({
+    ...logo,
+    ratio: aspectRatio(path.join(process.cwd(), "public", decodeURIComponent(logo.src))),
+    scale: LOGO_SCALE[logo.file],
+  }));
 
 /** Camera / clipboard names like "image copy 2", "IMG_1234", "WhatsApp Image ..." say nothing about the photo */
 const GENERIC_NAME = /^(image|img|photo|pic|dsc|pxl|screenshot|whatsapp)\b/i;

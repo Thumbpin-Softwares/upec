@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 const overlay = "linear-gradient(120deg, rgba(6,26,51,.93), rgba(10,44,84,.88))";
 
@@ -151,7 +151,13 @@ export function CtaBanner({
   );
 }
 
-export function LogoGrid({ logos }: { logos: { src: string; name: string }[] }) {
+/**
+ * Logo height in px for a given width/height ratio, so marks of every shape carry similar
+ * visual weight: square ~60px tall, long wordmarks shorter but much wider.
+ */
+const logoHeight = (ratio = 2, scale = 1) => Math.round(60 * Math.pow(ratio, -0.45) * scale);
+
+export function LogoGrid({ logos }: { logos: { src: string; name: string; ratio?: number; scale?: number }[] }) {
   return (
     // Inner lines only: every cell draws its right + bottom edge, and the wrapper
     // clips the last column's right edge and last row's bottom edge (-1px overhang)
@@ -160,10 +166,16 @@ export function LogoGrid({ logos }: { logos: { src: string; name: string }[] }) 
         {logos.map((logo) => (
           <div
             key={logo.src}
-            className="flex h-28 items-center justify-center border-r border-b border-grey-400/50 px-5 sm:h-32"
+            className="flex h-28 items-center justify-center border-r border-b border-grey-400/50 px-3 sm:h-32 sm:px-5"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={logo.src} alt={logo.name} loading="lazy" className="max-h-12 max-w-[75%] object-contain sm:max-h-14" />
+            <img
+              src={logo.src}
+              alt={logo.name}
+              loading="lazy"
+              style={{ "--logo-h": `${logoHeight(logo.ratio, logo.scale)}px` } as CSSProperties}
+              className="h-[calc(var(--logo-h)*0.8)] w-auto max-w-[90%] object-contain sm:h-(--logo-h) sm:max-w-[85%]"
+            />
           </div>
         ))}
       </div>
