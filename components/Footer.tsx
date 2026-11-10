@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 md:gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="mb-3.5 h-9.5 w-auto" />
+            <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="mb-3.5 h-16 w-auto" />
             <p className="text-[.9rem] text-[#93a7bb]">
               United Precision Engineering Company, an affiliate of Polyplastics (India). Design,
               engineering, tooling &amp; production solutions for decorative automotive parts.

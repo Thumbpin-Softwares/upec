@@ -218,8 +218,9 @@ export function ProductCard({
         <img src={src} alt={alt} className={`size-full ${contain ? "object-contain" : "object-cover"}`} />
       </div>
       <div className="px-5.5 py-5">
-        <h3 className={titleClassName}>{title}</h3>
-        {text && <p>{text}</p>}
+        {/* Forced colours: the card stays white even inside a navy section, which recolours h3/p */}
+        <h3 className={`text-navy-800! ${titleClassName}`}>{title}</h3>
+        {text && <p className="text-grey-600!">{text}</p>}
       </div>
     </div>
   );

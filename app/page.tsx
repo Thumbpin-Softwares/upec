@@ -58,9 +58,7 @@ export default function Home() {
           className={`${container} grid items-center gap-10 pt-12 pb-18 sm:pt-16 sm:pb-22 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 lg:pt-22 lg:pb-34`}
         >
           <div>
-            <div className="mb-4 inline-flex items-center gap-2.5 text-[.78rem] font-bold tracking-[.14em] text-cyan-400 uppercase before:inline-block before:h-0.5 before:w-8 before:bg-cyan-500">
-              Passionate Performance
-            </div>
+            
             <h1 className="mb-5 text-balance text-white lg:text-[2.9rem] lg:leading-[1.15]">
               Precision Tooling for <span className="text-cyan-400">Decorative Automotive Parts</span>
             </h1>
@@ -154,7 +152,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="navy">
         <SectionHead eyebrow="Our Products" title="Decorative tooling, by category">
           Specialised in Hi-Gloss, IMD, 2K and Kromex finishes across every visible surface of the
           vehicle.
@@ -165,7 +163,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-9 text-center">
-          <Link href="/our-products" className={btn("dark")}>View All Products</Link>
+          <Link href="/our-products" className={btn("primary")}>View All Products</Link>
         </div>
       </Section>
 

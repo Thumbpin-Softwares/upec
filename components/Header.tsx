@@ -82,7 +82,7 @@ export default function Header() {
           <img src="/assets/img/upec-logo.png" alt="" className="h-[clamp(2.125rem,11vw,2.5rem)] w-auto flex-none xs:h-12 xl:h-14" />
           {/* Two lines so the full name fits beside the desktop nav and on narrow phones */}
           <span className="border-l border-grey-400 pl-2.5 font-brand text-[clamp(.56rem,2.8vw,.72rem)] leading-[1.3] font-semibold tracking-[.04em] whitespace-nowrap text-brand-blue uppercase xs:pl-3.5 xs:text-[.8rem] xs:tracking-[.1em] sm:text-[.95rem]">
-            United Precision
+            United <span className="text-cyan-500">Precision</span>
             <br />
             Engineering Company
           </span>
