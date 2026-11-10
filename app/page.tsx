@@ -4,11 +4,11 @@ import InquiryDrawer from "@/components/InquiryDrawer";
 import Stats from "@/components/Stats";
 import { getClientLogos } from "@/lib/images";
 import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
-import { Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
+import { ArrowRight, Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
 
-const HERO_IMAGES = [
-  "/assets/img/photos/shop-floor-cnc.jpg",
-  "/assets/img/photos/shop-floor-edm.jpg",
+const HERO_SLIDES = [
+  { src: "/assets/img/photos/shop-floor-cnc.jpg", alt: "CNC machining centres on the UPEC shop floor" },
+  { src: "/assets/img/photos/shop-floor-edm.jpg", alt: "EDM machines on the UPEC shop floor" },
 ];
 
 const PROCESS = [
@@ -49,28 +49,37 @@ export default function Home() {
   return (
     <>
       <InquiryDrawer />
-      <section
-        className="relative flex items-center overflow-hidden bg-navy-900 pt-16 pb-20 text-white after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_82%_20%,rgba(23,179,217,.25),transparent_45%)] sm:pt-20 sm:pb-24 md:min-h-160 md:py-0"
-      >
-        <HeroCarousel images={HERO_IMAGES} />
-        <div className="relative z-2 w-full px-6">
-          <div className="mx-auto max-w-4xl text-center [text-shadow:0_1px_14px_rgb(6_26_51/.6)]">
-            <div className="mb-1.5 text-base font-medium text-cyan-400 sm:text-[1.15rem]">Passionate Performance!</div>
-            <h1 className="text-balance text-white">Precision Tooling for Decorative Automotive Parts</h1>
-            <p className="mx-auto max-w-2xl text-base text-pretty text-[#d7e5f2] sm:text-lg">
+      <section className="relative isolate overflow-hidden bg-linear-135 from-navy-900 to-navy-800 text-white">
+        {/* Faint engineering grid + glow behind the photo side (same motif as the CTA banner) */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(255_255_255/.045)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/.045)_1px,transparent_1px)] bg-size-[40px_40px] [mask-image:linear-gradient(to_left,black,transparent_70%)]" />
+        <div className="absolute -top-32 -right-24 -z-10 size-120 rounded-full bg-cyan-500/15 blur-3xl" />
+
+        <div
+          className={`${container} grid items-center gap-10 pt-12 pb-18 sm:pt-16 sm:pb-22 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14 lg:pt-22 lg:pb-34`}
+        >
+          <div>
+            <div className="mb-4 inline-flex items-center gap-2.5 text-[.78rem] font-bold tracking-[.14em] text-cyan-400 uppercase before:inline-block before:h-0.5 before:w-8 before:bg-cyan-500">
+              Passionate Performance
+            </div>
+            <h1 className="mb-5 text-balance text-white lg:text-[2.9rem] lg:leading-[1.15]">
+              Precision Tooling for <span className="text-cyan-400">Decorative Automotive Parts</span>
+            </h1>
+            <p className="mb-0 max-w-xl text-base text-pretty text-[#c8d6e5] sm:text-[1.05rem]">
               An affiliate of Polyplastics (India), with 30 years of engineering excellence in design,
               tooling and production of high-gloss, IMD, 2K &amp; Kromex decorative components for
               leading global OEMs.
             </p>
-            <div className="mt-7.5 flex flex-wrap justify-center gap-3.5 max-md:mx-auto max-md:max-w-xs max-md:flex-col max-md:items-stretch">
-              <Link href="/what-we-do" className={`${btn("primary")} max-md:whitespace-normal`}>
+            <div className="mt-8 flex flex-wrap gap-3.5 max-sm:flex-col max-sm:items-stretch">
+              <Link href="/what-we-do" className={`${btn("primary")} group`}>
                 Explore Products
+                <ArrowRight className="size-4 transition-[translate] group-hover:translate-x-1" />
               </Link>
-              <Link href="/contact" className={`${btn("outline")} max-md:whitespace-normal`}>
+              <Link href="/contact" className={btn("outline")}>
                 Get In Touch
               </Link>
             </div>
           </div>
+          <HeroCarousel slides={HERO_SLIDES} />
         </div>
       </section>
 
