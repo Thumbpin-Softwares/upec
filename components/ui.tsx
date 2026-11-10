@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
+import JsonLd from "@/components/JsonLd";
+import { abs } from "@/lib/site";
 
 export const container = "mx-auto max-w-295 px-6";
 
@@ -69,12 +71,15 @@ export function IconBadge({ children, small }: { children: ReactNode; small?: bo
 export function PageHeader({
   title,
   crumb,
+  path,
   lead,
   image,
   leadMaxWidth = 620,
 }: {
   title: string;
   crumb: string;
+  /** This page's URL path, for the breadcrumb structured data */
+  path: string;
   lead: string;
   image: string;
   leadMaxWidth?: number;
@@ -87,9 +92,25 @@ export function PageHeader({
       style={{ "--banner-img": `url('${image}')` } as CSSProperties}
     >
       <div className={`${container} [text-shadow:0_1px_14px_rgb(6_26_51/.6)]`}>
-        <div className="text-[.9rem] text-[#b7c8d9]">
-          <Link href="/" className="text-[#b7c8d9]">Home</Link> / <span className="text-cyan-400">{crumb}</span>
-        </div>
+        <nav aria-label="Breadcrumb" className="text-[.9rem] text-[#b7c8d9]">
+          <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0">
+            <li>
+              <Link href="/" className="text-[#b7c8d9] transition-colors hover:text-white">Home</Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-cyan-400">{crumb}</li>
+          </ol>
+        </nav>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: abs("/") },
+              { "@type": "ListItem", position: 2, name: crumb, item: abs(path) },
+            ],
+          }}
+        />
         <h1 className="text-white">{title}</h1>
         <p className="text-[#d7e5f2]" style={{ maxWidth: leadMaxWidth }}>
           {lead}

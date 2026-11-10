@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import EventAlbums from "@/components/EventAlbums";
 import Gallery from "@/components/Gallery";
 import VideoEmbed from "@/components/VideoEmbed";
 import { getCelebrationGroups, getEventGroups, getGalleryPhotos } from "@/lib/images";
 import { CtaBanner, PageHeader, Section, SectionHead } from "@/components/ui";
 
-export const metadata: Metadata = {
-  title: "Media",
+export const metadata: Metadata = pageMetadata({
+  title: "Media: Corporate Film & Plant Gallery",
   description:
-    "Corporate film and photo gallery of UPEC's plant, engineering floor and decorative tooling programs.",
-};
+    "Watch UPEC's corporate film and browse photos of our tool room, CNC, EDM and assembly sections and team celebrations in Yamuna Nagar.",
+  path: "/media",
+});
 
 export default function Media() {
   // Optional galleries after the (grey) photo gallery; tones alternate over the visible ones
@@ -21,6 +23,7 @@ export default function Media() {
   return (
     <>
       <PageHeader
+        path="/media"
         title="Media"
         crumb="Media"
         lead="A look inside our plant, our engineering floor, and the decorative tooling we build."

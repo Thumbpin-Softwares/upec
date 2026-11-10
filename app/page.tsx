@@ -1,11 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import InquiryDrawer from "@/components/InquiryDrawer";
 import Stats from "@/components/Stats";
 import VideoEmbed from "@/components/VideoEmbed";
 import { getClientLogos } from "@/lib/images";
+import { pageMetadata, SITE } from "@/lib/site";
 import { btn, container, CtaBanner, Eyebrow, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
 import { ArrowRight, Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
+
+export const metadata: Metadata = pageMetadata({ description: SITE.description, path: "/" });
 
 const HERO_SLIDES = [
   { src: "/assets/img/photos/shop-floor-cnc.jpg", alt: "CNC machining centres on the UPEC shop floor" },

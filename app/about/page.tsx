@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
 import { getClientLogos } from "@/lib/images";
 import ValuesDisk from "@/components/ValuesDisk";
 import VideoEmbed from "@/components/VideoEmbed";
 
-export const metadata: Metadata = {
-  title: "About Us",
+export const metadata: Metadata = pageMetadata({
+  title: "About Us: Decorative Mold Makers Since 1996",
   description:
-    "Our story, our team and the OEMs who trust UPEC, an affiliate of Polyplastics (India), for decorative automotive tooling since 1996.",
-};
+    "Since 1996, UPEC has grown from a captive tool room into a 170+ strong decorative mold specialist. Our story, I-CREATE values, team and the OEMs who trust us.",
+  path: "/about",
+});
 
 const MILESTONES = [
   { year: "April 1996", title: "Start of Operations", text: "Began as a captive tooling setup serving the Polyplastics Group." },
@@ -37,6 +39,7 @@ export default function About() {
   return (
     <>
       <PageHeader
+        path="/about"
         title="About UPEC"
         crumb="About Us"
         lead="Three decades of disciplined engineering behind India's decorative automotive parts."

@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { abs, pageMetadata, SITE_URL } from "@/lib/site";
 import ContactForm from "@/components/ContactForm";
 import { Eyebrow, PageHeader, Section } from "@/components/ui";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Us: Mold Enquiries, Suppliers & Careers",
   description:
-    "Get in touch with United Precision Engineering Company, Yamuna Nagar. Request a quote for decorative automotive tooling.",
-};
+    "Contact UPEC in Yamuna Nagar, Haryana for decorative automotive mold enquiries, supplier registration and careers. Call +91 99716 97292.",
+  path: "/contact",
+});
 
 const iconBox =
   "flex size-10 flex-none items-center justify-center rounded-md bg-white/6 text-cyan-400 [&_svg]:size-4.5";
@@ -33,7 +36,17 @@ function ContactAction({ href, icon, label, value }: { href: string; icon: React
 export default function Contact() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          url: abs("/contact"),
+          name: "Contact UPEC",
+          about: { "@id": `${SITE_URL}/#organization` },
+        }}
+      />
       <PageHeader
+        path="/contact"
         title="Contact Us"
         crumb="Contact Us"
         lead="Tell us about your decorative tooling requirement and we'll get back to you quickly."

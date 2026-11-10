@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { Card, CtaBanner, Eyebrow, PageHeader, Section, SectionHead, TagCloud, Timeline } from "@/components/ui";
 import { Bike, Car, LinkIcon, Tractor } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "What We Do",
+export const metadata: Metadata = pageMetadata({
+  title: "What We Do: Mold Design to Delivery",
   description:
-    "Our process, engineering capabilities and the OEMs and Tier-1s we work for: decorative automotive tooling from concept to delivery.",
-};
+    "From concept, CAD and CAE to tool build, trials and delivery: UPEC's controlled, weekly-tracked process for decorative automotive injection molds.",
+  path: "/what-we-do",
+});
 
 const PROCESS = [
   { title: "Order Confirmation & Contract Review", text: "Formal sign-off before any engineering work begins." },
@@ -31,6 +33,7 @@ export default function WhatWeDo() {
   return (
     <>
       <PageHeader
+        path="/what-we-do"
         title="What We Do"
         crumb="What We Do"
         lead="A controlled, weekly-tracked process, from contract review to delivery readiness, built around decorative tooling."

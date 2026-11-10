@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { CtaBanner, PageHeader, ProductCard, Section, SectionHead, TagCloud } from "@/components/ui";
 
-export const metadata: Metadata = {
-  title: "Our Products",
+export const metadata: Metadata = pageMetadata({
+  title: "Our Products: Decorative Automotive Molds",
   description:
-    "Decorative automotive tooling by vehicle segment: ID decals, facia decoratives, wheel covers, cockpit decorations and delivered programs for Renault, Nissan and more.",
-};
+    "Molds for every vehicle segment: emblems, front facia, rear and side decoratives, cockpit trims and wheel covers, in high gloss, IMD, 2K and Kromex.",
+  path: "/our-products",
+});
 
 type Product = { src: string; alt: string; title: string; contain?: boolean };
 
@@ -25,6 +27,7 @@ export default function OurProducts() {
   return (
     <>
       <PageHeader
+        path="/our-products"
         title="Our Products"
         crumb="Our Products"
         lead="Molds for every visible decorative touchpoint of a vehicle, organised by vehicle segment."
