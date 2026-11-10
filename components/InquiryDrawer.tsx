@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ContactForm from "@/components/ContactForm";
 
-/** Vertical "Inquiry Form" tab on the right edge that slides open a form drawer. */
+/** Vertical "Inquiry Form" tab on the right edge (tablet and up) that slides open a form drawer. */
 export default function InquiryDrawer() {
   const [open, setOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -32,7 +32,8 @@ export default function InquiryDrawer() {
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
         aria-expanded={open}
-        className={`fixed top-1/2 right-0 z-990 flex -translate-y-1/2 rotate-180 cursor-pointer items-center rounded-r-md border border-l-0 border-grey-200 bg-white px-2.5 py-4 text-sm font-semibold tracking-[.12em] text-navy-800 uppercase shadow-md transition-[background-color,color,translate,opacity] [writing-mode:vertical-rl] hover:bg-grey-100 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-800 ${
+        // Hidden on phones, where the tab covered page text; mobile visitors use Get In Touch / Contact Us
+        className={`fixed top-1/2 right-0 z-990 flex -translate-y-1/2 max-md:hidden rotate-180 cursor-pointer items-center rounded-r-md border border-l-0 border-grey-200 bg-white px-2.5 py-4 text-sm font-semibold tracking-[.12em] text-navy-800 uppercase shadow-md transition-[background-color,color,translate,opacity] [writing-mode:vertical-rl] hover:bg-grey-100 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-800 ${
           open ? "pointer-events-none translate-x-full opacity-0" : ""
         }`}
       >

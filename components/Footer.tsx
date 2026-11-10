@@ -2,20 +2,25 @@ import Link from "next/link";
 import Year from "@/components/Year";
 import { container } from "@/components/ui";
 
-const heading = "mb-4.5 text-[.95rem] uppercase tracking-[.06em] text-white";
-const list = "*:mb-2.75 [&_a]:text-[.92rem] [&_a]:text-[#a9bbcd] [&_a:hover]:text-cyan-400";
+const heading = "mb-4.5 text-[.95rem] uppercase tracking-[.06em] text-navy-800";
+const list = "text-[.92rem] *:mb-2.75 [&_a]:text-grey-600 [&_a]:transition-colors [&_a:hover]:text-blue-600";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 pt-12 text-[#a9bbcd] md:pt-16">
+    <footer className="border-t border-grey-200 bg-white pt-12 text-grey-600 md:pt-16">
       <div className={container}>
         <div className="grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 md:gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="mb-3.5 h-16 w-auto" />
-            <p className="text-[.9rem] text-[#93a7bb]">
-              United Precision Engineering Company, an affiliate of Polyplastics (India). Design,
-              engineering, tooling &amp; production solutions for decorative automotive parts.
+            <img src="/assets/img/upec-logo.png" alt="UPEC logo" className="mb-3.5 h-24 w-auto" />
+            {/* Same as the navbar company name: Gill Sans caps in brand blue, "Precision" in sky blue */}
+            <div className="mb-3.5 font-brand text-[.95rem] leading-[1.3] font-semibold tracking-[.1em] text-brand-blue uppercase">
+              United <span className="text-cyan-500">Precision</span>
+              <br />
+              Engineering Company
+            </div>
+            <p className="text-[.9rem] text-grey-600">
+              Design, engineering, tooling &amp; production solutions for decorative automotive parts.
             </p>
           </div>
           <div>
@@ -45,7 +50,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between gap-2.5 border-t border-white/8 py-5.5 text-[.82rem] text-[#6f829a]">
+        <div className="flex flex-wrap justify-between gap-2.5 border-t border-grey-200 py-5.5 text-[.82rem] text-grey-600">
           <span>
             &copy; <Year /> United Precision Engineering Company. All rights
             reserved.

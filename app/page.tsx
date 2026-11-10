@@ -63,8 +63,7 @@ export default function Home() {
               Precision Tooling for <span className="text-cyan-400">Decorative Automotive Parts</span>
             </h1>
             <p className="mb-0 max-w-xl text-base text-pretty text-[#c8d6e5] sm:text-[1.05rem]">
-              An affiliate of Polyplastics (India), with 30 years of engineering excellence in design,
-              tooling and production of high-gloss, IMD, 2K &amp; Kromex decorative components for
+              From first design to finished mold, we build the tooling behind decorative parts for
               leading global OEMs.
             </p>
             <div className="mt-8 flex flex-wrap gap-3.5 max-sm:flex-col max-sm:items-stretch">
@@ -87,7 +86,7 @@ export default function Home() {
             { count: 170, suffix: "+", label: "Team Members", icon: <Users /> },
             { count: 8000, suffix: "+", label: "Sqm Facility Area", icon: <Factory /> },
             { count: 4000, suffix: "+", label: "Molds Delivered", icon: <Boxes /> },
-            { text: "10000 Kg", label: "Max Lift Capacity", icon: <Weight /> },
+            { count: 10000, suffix: "Kg", label: "Max Lift Capacity", icon: <Weight /> },
           ]}
         />
       </div>

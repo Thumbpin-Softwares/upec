@@ -23,7 +23,17 @@ function Counter({ target, suffix = "", run }: { target: number; suffix?: string
     return () => cancelAnimationFrame(frame);
   }, [run, target]);
 
-  return <>{value + suffix}</>;
+  return (
+    <>
+      {value.toLocaleString("en-IN")}
+      {/* "+" hugs the number; a unit such as "Kg" is set smaller beside it */}
+      {suffix && (
+        <span className={suffix.length > 1 ? "ml-1.5 text-[.5em] font-semibold text-grey-600" : "text-cyan-500"}>
+          {suffix}
+        </span>
+      )}
+    </>
+  );
 }
 
 export default function Stats({ stats }: { stats: Stat[] }) {
@@ -49,23 +59,28 @@ export default function Stats({ stats }: { stats: Stat[] }) {
   return (
     <div
       // One strip: the 1px gap shows the grey background through as divider lines
-      className="reveal relative z-5 -mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-card border-b-3 border-cyan-500 bg-grey-200 shadow-md sm:-mt-7.5 md:-mt-14 lg:grid-cols-4"
+      className="reveal relative z-5 -mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-card bg-grey-200 shadow-md ring-1 ring-grey-200 sm:-mt-7.5 md:-mt-14 lg:grid-cols-4"
       ref={ref}
     >
       {stats.map((s) => (
         <div
-          className="bg-white px-2.5 py-4.5 text-center xs:px-3.5 xs:py-5.5 md:px-5 md:py-7"
+          className="flex flex-col items-start gap-3 bg-white px-4 py-5 xs:px-5 md:flex-row md:items-center md:gap-4 md:px-6 md:py-7 xl:px-7"
           key={s.label}
         >
           {s.icon && (
-            <span className="mx-auto mb-2.5 flex size-9 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-500 md:mb-3 md:size-11 [&_svg]:size-4.5 md:[&_svg]:size-5.5">
+            // Minimal: bare thin-stroke icon, no tile
+            <span className="flex flex-none text-cyan-500 [&_svg]:size-6 [&_svg]:stroke-[1.5] md:[&_svg]:size-7">
               {s.icon}
             </span>
           )}
-          <span className="block text-[1.4rem] font-bold text-navy-800 xs:text-[1.7rem] md:text-[2.1rem]">
-            {"count" in s ? <Counter target={s.count} suffix={s.suffix} run={run} /> : s.text}
-          </span>
-          <span className="text-[.72rem] font-medium text-grey-600 xs:text-[.85rem]">{s.label}</span>
+          <div className="min-w-0">
+            <span className="block text-[1.5rem] leading-none font-bold whitespace-nowrap text-navy-800 tabular-nums xs:text-[1.75rem] md:text-[2rem]">
+              {"count" in s ? <Counter target={s.count} suffix={s.suffix} run={run} /> : s.text}
+            </span>
+            <span className="mt-1.5 block text-[.68rem] leading-tight font-semibold tracking-[.08em] text-grey-600 uppercase xs:text-[.72rem]">
+              {s.label}
+            </span>
+          </div>
         </div>
       ))}
     </div>
