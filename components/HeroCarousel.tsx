@@ -29,6 +29,8 @@ export default function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
           src={src}
           alt={alt}
           aria-hidden={i !== current}
+          fetchPriority={i === 0 ? "high" : "low"}
+          decoding="async"
           className={`absolute inset-0 size-full object-cover transition-[opacity,scale] duration-[1200ms,7500ms] ease-in-out motion-reduce:transition-none ${
             i === current ? "scale-105 opacity-100" : "scale-100 opacity-0"
           }`}
@@ -52,11 +54,11 @@ export default function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                 aria-label={`Show photo ${i + 1} of ${slides.length}`}
                 aria-current={i === current}
                 onClick={() => setCurrent(i)}
-                className="group flex h-11 cursor-pointer items-center border-0 bg-transparent px-1"
+                className="group flex h-11 cursor-pointer items-center border-0 bg-transparent px-0.75 sm:px-1"
               >
                 <span
                   className={`h-1 rounded-full transition-[width,background-color] ${
-                    i === current ? "w-7 bg-cyan-400" : "w-3 bg-white/50 group-hover:bg-white"
+                    i === current ? "w-5 bg-cyan-400 sm:w-7" : "w-2 bg-white/50 group-hover:bg-white sm:w-3"
                   }`}
                 />
               </button>

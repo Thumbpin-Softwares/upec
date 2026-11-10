@@ -10,6 +10,13 @@ import { ArrowRight, Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Tr
 const HERO_SLIDES = [
   { src: "/assets/img/photos/shop-floor-cnc.jpg", alt: "CNC machining centres on the UPEC shop floor" },
   { src: "/assets/img/photos/shop-floor-edm.jpg", alt: "EDM machines on the UPEC shop floor" },
+  { src: "/assets/img/photos/factory-machine-shop.jpg", alt: "Double-column and VC1000 machining centres in the UPEC machine shop" },
+  { src: "/assets/img/photos/factory-cnc-section-1.jpg", alt: "CNC section with machining centres and programming station" },
+  { src: "/assets/img/photos/factory-five-axis-vmc.jpg", alt: "Hurco five-axis vertical machining centre" },
+  { src: "/assets/img/photos/factory-cnc-section-2.jpg", alt: "Row of CNC machining centres in the tool room" },
+  { src: "/assets/img/photos/factory-edm-section.jpg", alt: "Engineers working in the EDM section" },
+  { src: "/assets/img/photos/factory-wire-cut.jpg", alt: "Wire-cut EDM machine" },
+  { src: "/assets/img/photos/factory-assembly-section.jpg", alt: "Toolmakers assembling molds in the assembly section" },
 ];
 
 const PROCESS = [
