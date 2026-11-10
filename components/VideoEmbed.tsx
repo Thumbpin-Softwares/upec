@@ -1,20 +1,60 @@
 "use client";
 
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * YouTube embed that shows a local poster until clicked, so YouTube's player
  * (and its cookies) only load for visitors who actually press play.
+ *
+ * With `autoplay`, the player loads by itself once the video scrolls into view
+ * and plays muted on a loop (browsers only allow autoplay without sound);
+ * visitors can unmute from the player controls.
  */
-export default function VideoEmbed({ id, title, poster }: { id: string; title: string; poster: string }) {
+export default function VideoEmbed({
+  id,
+  title,
+  poster,
+  autoplay = false,
+  className = "",
+}: {
+  id: string;
+  title: string;
+  poster: string;
+  autoplay?: boolean;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState(false);
 
+  useEffect(() => {
+    const el = ref.current;
+    if (!autoplay || !el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setPlaying(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [autoplay]);
+
+  const params = autoplay
+    ? `autoplay=1&mute=1&loop=1&playlist=${id}&playsinline=1&rel=0`
+    : "autoplay=1&rel=0";
+
   return (
-    <div className="reveal relative mx-auto aspect-video max-w-225 overflow-hidden rounded-md bg-navy-900 shadow-md">
+    <div
+      ref={ref}
+      className={`reveal relative mx-auto aspect-video w-full max-w-225 overflow-hidden rounded-md bg-navy-900 shadow-md ${className}`}
+    >
       {playing ? (
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+          src={`https://www.youtube-nocookie.com/embed/${id}?${params}`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"

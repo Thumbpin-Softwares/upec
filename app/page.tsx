@@ -2,6 +2,7 @@ import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import InquiryDrawer from "@/components/InquiryDrawer";
 import Stats from "@/components/Stats";
+import VideoEmbed from "@/components/VideoEmbed";
 import { getClientLogos } from "@/lib/images";
 import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
 import { ArrowRight, Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
@@ -111,14 +112,7 @@ export default function Home() {
             Read Our Full Story
           </Link>
         </div>
-        <div className="reveal">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/img/photos/engineering-team.jpg"
-            alt="UPEC design and engineering team at work"
-            className="rounded-card shadow-md"
-          />
-        </div>
+        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/engineering-team.jpg" autoplay />
       </Section>
 
       <Section tone="grey">

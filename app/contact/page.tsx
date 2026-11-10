@@ -43,7 +43,7 @@ export default function Contact() {
       <Section className="grid grid-cols-1 items-start gap-5 md:gap-12.5 lg:grid-cols-2">
         <div className="reveal">
           <Eyebrow>Send a Message</Eyebrow>
-          <h2>Request a Quote</h2>
+          <h2>How can we help?</h2>
           <ContactForm />
         </div>
 
