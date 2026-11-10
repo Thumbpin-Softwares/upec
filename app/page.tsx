@@ -4,7 +4,7 @@ import InquiryDrawer from "@/components/InquiryDrawer";
 import Stats from "@/components/Stats";
 import VideoEmbed from "@/components/VideoEmbed";
 import { getClientLogos } from "@/lib/images";
-import { btn, cardSurface, container, CtaBanner, Eyebrow, IconBadge, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
+import { btn, container, CtaBanner, Eyebrow, LogoGrid, ProductCard, Section, SectionHead } from "@/components/ui";
 import { ArrowRight, Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Truck, Users, Weight } from "lucide-react";
 
 const HERO_SLIDES = [
@@ -35,7 +35,7 @@ const PROCESS = [
     icon: <Truck />,
     title: "Delivery & Support",
     summary: "Transparent tracking right through to delivery readiness.",
-    points: ["Weekly progression updates with pictures", "Part submission with reports", "resolution through delivery readiness and post delivery support"],
+    points: ["Weekly progression updates with pictures", "Part submission with reports", "Resolution through delivery readiness and post delivery support"],
   },
 ];
 
@@ -120,26 +120,37 @@ export default function Home() {
           From contract review to part submission, every project runs through a controlled,
           weekly-tracked process engineered to exceed customer expectations.
         </SectionHead>
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+        <ol className="relative grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {/* Desktop: one rail linking the four step markers */}
+          <span aria-hidden="true" className="absolute top-6 right-[12.5%] left-[12.5%] hidden h-px bg-grey-400/50 lg:block" />
           {PROCESS.map((step, i) => (
-            <div key={step.title} className={`reveal relative ${cardSurface} p-7 md:p-9`}>
-              <span className="absolute top-6 right-7 text-4xl font-bold text-grey-200 md:top-8 md:right-9 md:text-5xl">
-                {String(i + 1).padStart(2, "0")}
+            <li key={step.title} className="reveal group flex flex-col">
+              <span className="relative z-1 mx-auto mb-6 hidden size-12 items-center justify-center rounded-full bg-navy-800 text-cyan-400 ring-6 ring-grey-100 transition-colors duration-200 group-hover:bg-cyan-500 group-hover:text-navy-900 lg:flex [&_svg]:size-5 [&_svg]:stroke-[1.75]">
+                {step.icon}
               </span>
-              <IconBadge>{step.icon}</IconBadge>
-              <h3 className="mt-5 mb-2 text-[1.35rem]">{step.title}</h3>
-              <p className="mb-5 text-[.95rem]">{step.summary}</p>
-              <ul className="space-y-2.5 border-t border-grey-200 pt-5">
-                {step.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-[.95rem] text-ink">
-                    <Check className="mt-1 size-4 flex-none text-cyan-500" strokeWidth={3} />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="flex flex-1 flex-col rounded-card bg-white p-6 ring-1 ring-grey-200 transition-[translate,box-shadow] duration-200 group-hover:-translate-y-1 group-hover:shadow-md md:p-7">
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="flex size-10 flex-none items-center justify-center rounded-full bg-grey-100 text-navy-800 lg:hidden [&_svg]:size-5 [&_svg]:stroke-[1.75]">
+                    {step.icon}
+                  </span>
+                  <span className="text-[.72rem] font-semibold tracking-[.14em] text-cyan-500 uppercase">
+                    Step {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mb-2 text-[1.2rem]">{step.title}</h3>
+                <p className="mb-5 text-[.92rem] text-grey-600">{step.summary}</p>
+                <ul className="space-y-2 border-t border-grey-200 pt-5">
+                  {step.points.map((point) => (
+                    <li key={point} className="flex items-start gap-2.5 text-[.88rem] leading-snug text-ink">
+                      <Check className="mt-0.5 size-3.5 flex-none text-cyan-500" strokeWidth={2.5} />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
         <div className="mt-9 text-center">
           <Link href="/what-we-do" className={btn("dark")}>See Our Full Process</Link>
         </div>
