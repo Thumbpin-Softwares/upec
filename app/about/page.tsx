@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
 import { getClientLogos } from "@/lib/images";
+import ValuesDisk from "@/components/ValuesDisk";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -70,22 +71,7 @@ export default function About() {
 
       <Section tone="grey">
         <SectionHead eyebrow="Our Values" title={<><span className="text-cyan-500">I</span>-CREATE: the principles behind every mold we build</>} />
-        <ul className="reveal mx-auto max-w-3xl">
-          {VALUES.map(([letter, name, text], i) => (
-            <li
-              key={name}
-              className="grid grid-cols-[3.5rem_1fr] items-center gap-5 border-b border-grey-200 py-6 last:border-b-0 md:grid-cols-[6rem_1fr] md:gap-8 md:py-7"
-            >
-              <span className={`text-center text-6xl leading-none font-bold md:text-8xl ${i === 0 ? "text-cyan-500" : "text-navy-800"}`} aria-hidden="true">
-                {letter}
-              </span>
-              <div>
-                <h4 className="mb-1 text-[1.15rem] md:text-[1.3rem]">{name}</h4>
-                <p className="m-0 text-[.95rem] md:text-base">{text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <ValuesDisk values={VALUES} />
       </Section>
 
       <Section id="team" className="grid grid-cols-1 items-center gap-5 md:gap-14 lg:grid-cols-2">
