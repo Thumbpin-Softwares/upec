@@ -17,8 +17,13 @@
   --color-grey-400: #b9c4cf;
   --color-grey-600: #64748b;
   --color-ink: #10222f;
+  /* Company-name blue (R0 G0 B153), used only for the name in the navbar */
+  --color-brand-blue: rgb(0 0 153);
 
   --font-sans: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Company name only. Gill Sans MT is a licensed system font (ships with MS Office;
+     macOS/iOS have it as "Gill Sans"), so it is not bundled; others get the fallbacks. */
+  --font-brand: "Gill Sans MT", "Gill Sans", "Gill Sans Nova", Calibri, "Trebuchet MS", sans-serif;
 
   --radius-card: 10px;
 

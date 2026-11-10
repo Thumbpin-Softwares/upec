@@ -54,7 +54,7 @@ export default function Home() {
       >
         <HeroCarousel images={HERO_IMAGES} />
         <div className="relative z-2 w-full px-6">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-4xl text-center [text-shadow:0_1px_14px_rgb(6_26_51/.6)]">
             <div className="mb-1.5 text-base font-medium text-cyan-400 sm:text-[1.15rem]">Passionate Performance!</div>
             <h1 className="text-balance text-white">Precision Tooling for Decorative Automotive Parts</h1>
             <p className="mx-auto max-w-2xl text-base text-pretty text-[#d7e5f2] sm:text-lg">

@@ -2,8 +2,6 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 
-const overlay = "linear-gradient(120deg, rgba(6,26,51,.93), rgba(10,44,84,.88))";
-
 export const container = "mx-auto max-w-295 px-6";
 
 const btnBase =
@@ -83,10 +81,12 @@ export function PageHeader({
 }) {
   return (
     <section
-      className="relative bg-navy-900 bg-cover bg-center pt-26 pb-10.5 text-white sm:pt-30 sm:pb-12.5 md:pt-37.5 md:pb-17.5"
-      style={{ backgroundImage: `${overlay}, url('${image}')` }}
+      // Tint is only as dark as the text needs: even on phones (text spans the full width),
+      // weighted to the left on wider screens so the photo shows through on the right.
+      className="relative bg-navy-900 bg-[image:linear-gradient(rgba(6,26,51,.68),rgba(6,26,51,.56)),var(--banner-img)] bg-cover bg-center pt-26 pb-10.5 text-white sm:pt-30 sm:pb-12.5 md:bg-[image:linear-gradient(90deg,rgba(6,26,51,.8)_0%,rgba(6,26,51,.52)_50%,rgba(10,44,84,.18)_100%),var(--banner-img)] md:pt-37.5 md:pb-17.5"
+      style={{ "--banner-img": `url('${image}')` } as CSSProperties}
     >
-      <div className={container}>
+      <div className={`${container} [text-shadow:0_1px_14px_rgb(6_26_51/.6)]`}>
         <div className="text-[.9rem] text-[#b7c8d9]">
           <Link href="/" className="text-[#b7c8d9]">Home</Link> / <span className="text-cyan-400">{crumb}</span>
         </div>

@@ -25,7 +25,8 @@ export default function HeroCarousel({ images }: { images: string[] }) {
           style={{ backgroundImage: `url('${src}')` }}
         />
       ))}
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(6,26,51,.88),rgba(10,44,84,.72))]" />
+      {/* Darkest behind the centred copy, fading out so the photos read at the edges */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,26,51,.76)_0%,rgba(6,26,51,.56)_55%,rgba(6,26,51,.32)_100%)]" />
     </div>
   );
 }
