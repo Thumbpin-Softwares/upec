@@ -122,30 +122,48 @@ export function CtaBanner({
   text,
   href,
   label,
+  image = "/assets/img/photos/shop-floor-cnc.jpg",
   className = "",
 }: {
   title: string;
   text: string;
   href: string;
   label: string;
+  /** Photo on the right half (desktop); fades into the navy panel */
+  image?: string;
   className?: string;
 }) {
   return (
-    <div className={`reveal relative isolate overflow-hidden rounded-md bg-navy-900 text-white ${className}`}>
-      {/* Faint engineering grid, fading out towards the text side */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(255_255_255/.05)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/.05)_1px,transparent_1px)] bg-size-[36px_36px] [mask-image:linear-gradient(to_left,black,transparent_75%)]" />
-      <div className="absolute -right-24 -bottom-32 -z-10 size-96 rounded-full bg-cyan-500/20 blur-3xl" />
-      <div className="absolute inset-x-0 top-0 h-0.5 bg-linear-to-r from-cyan-500 via-cyan-500/40 to-transparent" />
+    <div
+      className={`reveal relative isolate grid overflow-hidden rounded-card bg-navy-900 text-white shadow-lg md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] ${className}`}
+    >
+      {/* Faint engineering grid + glow behind the copy */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgb(255_255_255/.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/.04)_1px,transparent_1px)] bg-size-[36px_36px] [mask-image:linear-gradient(to_bottom_right,black,transparent_70%)]" />
+      <div className="absolute -top-32 -left-24 -z-10 size-96 rounded-full bg-cyan-500/15 blur-3xl" />
 
-      <div className="flex flex-col gap-7 px-6 py-10 sm:px-10 md:flex-row md:items-center md:justify-between md:gap-12 md:px-14 md:py-14">
-        <div className="max-w-2xl">
-          <h2 className="mb-3 text-[1.6rem] text-white md:text-[2rem]">{title}</h2>
-          <p className="mb-0 text-[1.02rem] text-[#b7c8d9]">{text}</p>
+      <div className="relative z-1 px-6 py-10 sm:px-10 md:py-14 lg:px-14 lg:py-16">
+        <span className="mb-4 flex items-center gap-2.5 text-[.72rem] font-semibold tracking-[.16em] text-cyan-400 uppercase">
+          <span className="h-px w-7 bg-cyan-400" />
+          Let&apos;s work together
+        </span>
+        <h2 className="mb-3 text-[1.7rem] leading-tight text-balance text-white md:text-[2.15rem]">{title}</h2>
+        <p className="mb-8 max-w-md text-[1.02rem] text-pretty text-[#b7c8d9]">{text}</p>
+        <div className="flex max-sm:flex-col max-sm:items-stretch">
+          <Link href={href} className={`${btn("primary")} group`}>
+            {label}
+            <ArrowRight className="size-4 transition-[translate] group-hover:translate-x-1" />
+          </Link>
         </div>
-        <Link href={href} className={`${btn("primary")} group flex-none max-md:w-full`}>
-          {label}
-          <ArrowRight className="size-4 transition-[translate] group-hover:translate-x-1" />
-        </Link>
+      </div>
+
+      {/* Photo side: hidden on phones, blends into the panel on the left edge */}
+      <div className="relative max-md:hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image}
+          alt=""
+          className="absolute inset-0 size-full object-cover opacity-80 [mask-image:linear-gradient(to_right,transparent,black_65%)]"
+        />
       </div>
     </div>
   );

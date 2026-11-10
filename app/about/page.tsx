@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CtaBanner, Eyebrow, LogoGrid, PageHeader, Section, SectionHead, Timeline } from "@/components/ui";
 import { getClientLogos } from "@/lib/images";
 import ValuesDisk from "@/components/ValuesDisk";
+import VideoEmbed from "@/components/VideoEmbed";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -70,19 +71,12 @@ export default function About() {
       </Section>
 
       <Section tone="grey">
-        <SectionHead eyebrow="Our Values" title={<><span className="text-cyan-500">I</span>-CREATE: the principles behind every mold we build</>} />
+        <SectionHead eyebrow="Our Values" title={<><span className="text-cyan-500">I</span>-CREATE: Principles Behind our successful existence since 30+years</>} />
         <ValuesDisk values={VALUES} />
       </Section>
 
       <Section id="team" className="grid grid-cols-1 items-center gap-5 md:gap-14 lg:grid-cols-2">
-        <div className="reveal">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/img/photos/engineering-team.jpg"
-            alt="UPEC's design and engineering team"
-            className="rounded-card shadow-md"
-          />
-        </div>
+        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/engineering-team.jpg" autoplay />
         <div className="reveal">
           <Eyebrow>Our Team</Eyebrow>
           <h2>170+ people. One blend of experience and fresh engineering talent.</h2>

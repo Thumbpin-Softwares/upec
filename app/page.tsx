@@ -39,11 +39,12 @@ const PROCESS = [
   },
 ];
 
+// Finished parts made from UPEC molds (from the Polyplastics "Products & Customers" slide)
 const PRODUCTS = [
-  { src: "/assets/img/products/badge-decalls.jpg", alt: "Chrome Renault and Kwid badges", contain: true, title: "ID Decals & Badges" },
-  { src: "/assets/img/products/front-grill.avif", alt: "Gloss black front grille", title: "Front Facia Decoratives" },
-  { src: "/assets/img/products/wheeldecorative.avif", alt: "Silver multi-spoke decorative wheel", title: "Wheel Decoratives" },
-  { src: "/assets/img/products/footsetp.avif", alt: "Aluminium side footsteps (running boards)", title: "Exterior Module Decoratives" },
+  { src: "/assets/img/products/range-badges.webp", alt: "Chrome brand badges and emblems for many car makers", title: "Brand Badges & Emblems" },
+  { src: "/assets/img/products/range-grilles.webp", alt: "Chrome and gloss-black front grilles", title: "Grilles & Front Modules" },
+  { src: "/assets/img/products/range-wheels.webp", alt: "Decorative wheel covers in several finishes", title: "Wheel Covers & Decorations" },
+  { src: "/assets/img/products/range-other.webp", alt: "Chrome and painted decorative trim strips", title: "Other Decoratives" },
 ];
 
 export default function Home() {
@@ -158,8 +159,8 @@ export default function Home() {
 
       <Section tone="navy">
         <SectionHead eyebrow="Our Products" title="Decorative tooling, by category">
-          Specialised in Hi-Gloss, IMD, 2K and Kromex finishes across every visible surface of the
-          vehicle.
+          Specialized tool maker for high-gloss, high-aesthetics decorative automotive parts,
+          including 2K, IMD, Illumination &amp; Kromex technologies.
         </SectionHead>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-4">
           {PRODUCTS.map((p) => (
