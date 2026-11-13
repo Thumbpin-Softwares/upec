@@ -12,15 +12,14 @@ import { ArrowRight, Boxes, Check, CircleCheckBig, Factory, Layers, Settings, Tr
 export const metadata: Metadata = pageMetadata({ description: SITE.description, path: "/" });
 
 const HERO_SLIDES = [
-  { src: "/assets/img/photos/shop-floor-cnc.jpg", alt: "CNC machining centres on the UPEC shop floor" },
-  { src: "/assets/img/photos/shop-floor-edm.jpg", alt: "EDM machines on the UPEC shop floor" },
-  { src: "/assets/img/photos/factory-machine-shop.jpg", alt: "Double-column and VC1000 machining centres in the UPEC machine shop" },
-  { src: "/assets/img/photos/factory-cnc-section-1.jpg", alt: "CNC section with machining centres and programming station" },
-  { src: "/assets/img/photos/factory-five-axis-vmc.jpg", alt: "Hurco five-axis vertical machining centre" },
-  { src: "/assets/img/photos/factory-cnc-section-2.jpg", alt: "Row of CNC machining centres in the tool room" },
-  { src: "/assets/img/photos/factory-edm-section.jpg", alt: "Engineers working in the EDM section" },
-  { src: "/assets/img/photos/factory-wire-cut.jpg", alt: "Wire-cut EDM machine" },
-  { src: "/assets/img/photos/factory-assembly-section.jpg", alt: "Toolmakers assembling molds in the assembly section" },
+  { src: "/assets/img/photos/tool-room-five-axis.webp", alt: "Five-axis machining centres in the UPEC tool room" },
+  { src: "/assets/img/photos/hsm-mold-core.webp", alt: "High-speed machining of a mold core" },
+  { src: "/assets/img/photos/wheel-cover-mold.webp", alt: "Toolmaker with a wheel cover mold and its molded part" },
+  { src: "/assets/img/photos/edm-twin-head.webp", alt: "Twin-head EDM spark erosion on a mold insert" },
+  { src: "/assets/img/photos/machining-centre-operator.webp", alt: "Operator at a high-speed machining centre" },
+  { src: "/assets/img/photos/toolmaker-mold-fitting.webp", alt: "Toolmakers fitting a decorative part mold" },
+  { src: "/assets/img/photos/design-studio.webp", alt: "UPEC design and CAE engineering studio" },
+  { src: "/assets/img/photos/quality-fixture-inspection.webp", alt: "Engineer inspecting a part on a checking fixture" },
 ];
 
 const PROCESS = [
@@ -124,7 +123,7 @@ export default function Home() {
             Read Our Full Story
           </Link>
         </div>
-        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/engineering-team.jpg" autoplay />
+        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/team-tool-room.webp" autoplay />
       </Section>
 
       <Section tone="grey">

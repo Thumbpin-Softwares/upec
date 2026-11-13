@@ -143,7 +143,7 @@ export function CtaBanner({
   text,
   href,
   label,
-  image = "/assets/img/photos/shop-floor-cnc.jpg",
+  image = "/assets/img/photos/okuma-machining-centre.webp",
   className = "",
 }: {
   title: string;

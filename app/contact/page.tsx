@@ -50,7 +50,7 @@ export default function Contact() {
         title="Contact Us"
         crumb="Contact Us"
         lead="Tell us about your decorative tooling requirement and we'll get back to you quickly."
-        image="/assets/img/photos/shop-floor-cnc.jpg"
+        image="/assets/img/photos/team-at-plant.webp"
       />
 
       <Section className="grid grid-cols-1 items-start gap-5 md:gap-12.5 lg:grid-cols-2">

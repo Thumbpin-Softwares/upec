@@ -31,7 +31,7 @@ export default function OurProducts() {
         title="Our Products"
         crumb="Our Products"
         lead="Molds for every visible decorative touchpoint of a vehicle, organised by vehicle segment."
-        image="/assets/img/products/facia-tool-cavity.jpg"
+        image="/assets/img/photos/wheel-cover-mold-assembly.webp"
       />
 
       <Section id="vehicle-segment-wise">

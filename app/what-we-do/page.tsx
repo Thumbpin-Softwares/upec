@@ -37,7 +37,7 @@ export default function WhatWeDo() {
         title="What We Do"
         crumb="What We Do"
         lead="A controlled, weekly-tracked process, from contract review to delivery readiness, built around decorative tooling."
-        image="/assets/img/products/mold-tool-progression.jpg"
+        image="/assets/img/photos/mold-trial-press.webp"
       />
 
       <Section id="process" className="grid grid-cols-1 gap-5 md:gap-14 lg:grid-cols-2">

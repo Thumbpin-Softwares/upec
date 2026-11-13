@@ -27,12 +27,12 @@ export default function Media() {
         title="Media"
         crumb="Media"
         lead="A look inside our plant, our engineering floor, and the decorative tooling we build."
-        image="/assets/img/photos/shop-floor-edm.jpg"
+        image="/assets/img/photos/edm-electrode-sparking.webp"
       />
 
       <Section>
         <SectionHead eyebrow="Corporate Film" title="UPEC in motion" />
-        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/shop-floor-cnc.jpg" />
+        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/edm-twin-head.webp" />
       </Section>
 
       <Section tone="grey">

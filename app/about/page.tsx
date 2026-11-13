@@ -43,7 +43,7 @@ export default function About() {
         title="About UPEC"
         crumb="About Us"
         lead="Three decades of disciplined engineering behind India's decorative automotive parts."
-        image="/assets/img/photos/shop-floor-edm.jpg"
+        image="/assets/img/photos/upec-team-2026.webp"
         leadMaxWidth={600}
       />
 
@@ -79,7 +79,7 @@ export default function About() {
       </Section>
 
       <Section id="team" className="grid grid-cols-1 items-center gap-5 md:gap-14 lg:grid-cols-2">
-        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/engineering-team.jpg" autoplay />
+        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/team-tool-room.webp" autoplay />
         <div className="reveal">
           <Eyebrow>Our Team</Eyebrow>
           <h2>170+ people. One blend of experience and fresh engineering talent.</h2>
