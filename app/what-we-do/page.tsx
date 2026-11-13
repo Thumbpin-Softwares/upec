@@ -8,6 +8,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "From concept, CAD and CAE to tool build, trials and delivery: UPEC's controlled, weekly-tracked process for decorative automotive injection molds.",
   path: "/what-we-do",
+  image: "/og/what-we-do.jpg",
 });
 
 const PROCESS = [

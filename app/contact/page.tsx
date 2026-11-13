@@ -11,6 +11,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Contact UPEC in Yamuna Nagar, Haryana for decorative automotive mold enquiries, supplier registration and careers. Call +91 99716 97292.",
   path: "/contact",
+  image: "/og/contact.jpg",
 });
 
 const iconBox =

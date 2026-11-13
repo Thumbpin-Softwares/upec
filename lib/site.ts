@@ -80,7 +80,7 @@ export function pageMetadata({
       url: path,
       title: shareTitle,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt: SITE.name }],
+      images: [{ url: image, width: 1200, height: 630, alt: title ? `${title}, ${SITE.name}` : SITE.name }],
     },
     twitter: {
       card: "summary_large_image",

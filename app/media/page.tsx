@@ -11,6 +11,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Watch UPEC's corporate film and browse photos of our tool room, CNC, EDM and assembly sections and team celebrations in Yamuna Nagar.",
   path: "/media",
+  image: "/og/media.jpg",
 });
 
 export default function Media() {

@@ -10,6 +10,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Since 1996, UPEC has grown from a captive tool room into a 170+ strong decorative mold specialist. Our story, I-CREATE values, team and the OEMs who trust us.",
   path: "/about",
+  image: "/og/about.jpg",
 });
 
 const MILESTONES = [
