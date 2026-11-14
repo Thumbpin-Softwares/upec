@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
-import { abs, pageMetadata, SITE_URL } from "@/lib/site";
+import { abs, pageMetadata, SITE, SITE_URL } from "@/lib/site";
 import ContactForm from "@/components/ContactForm";
 import { Eyebrow, PageHeader, Section } from "@/components/ui";
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us: Mold Enquiries, Suppliers & Careers",
   description:
-    "Contact UPEC in Yamuna Nagar, Haryana for decorative automotive mold enquiries, supplier registration and careers. Call +91 99716 97292.",
+    "Contact UPEC in Yamuna Nagar, Haryana for decorative automotive mold enquiries, supplier registration and careers. Visit us at the Industrial Area, Yamuna Nagar.",
   path: "/contact",
   image: "/og/contact.jpg",
 });
@@ -18,10 +18,24 @@ const iconBox =
   "flex size-10 flex-none items-center justify-center rounded-md bg-white/6 text-cyan-400 [&_svg]:size-4.5";
 const labelCls = "text-[.7rem] font-semibold tracking-[.12em] text-[#7f93a8] uppercase";
 
-function ContactAction({ href, icon, label, value }: { href: string; icon: ReactNode; label: string; value: string }) {
+function ContactAction({
+  href,
+  icon,
+  label,
+  value,
+  external,
+}: {
+  href: string;
+  icon: ReactNode;
+  label: string;
+  value: string;
+  /** Opens in a new tab (e.g. Google Maps) */
+  external?: boolean;
+}) {
   return (
     <a
       href={href}
+      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
       className="group flex items-center gap-4 border-b border-white/8 px-7 py-4 transition-colors last:border-b-0 hover:bg-white/4 focus-visible:bg-white/4 focus-visible:outline-none md:px-8"
     >
       <span className={iconBox}>{icon}</span>
@@ -71,17 +85,17 @@ export default function Contact() {
             </div>
 
             <div className="border-t border-white/8">
-              <ContactAction href="tel:+919971697292" icon={<Phone />} label="Phone" value="+91 99716 97292" />
               <ContactAction href="mailto:COO@UPEC.co.in" icon={<Mail />} label="Email" value="COO@UPEC.co.in" />
+              <ContactAction href={SITE.mapUrl} external icon={<MapPin />} label="Visit" value="E-13, Industrial Area, Yamuna Nagar" />
             </div>
           </div>
 
           <div className="mt-6 overflow-hidden rounded-card border border-grey-200">
             <iframe
-              src="https://maps.google.com/maps?q=Yamuna%20Nagar%2C%20Haryana%2C%20India&t=&z=12&ie=UTF8&iwloc=&output=embed"
+              src={SITE.mapEmbedUrl}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="UPEC location: Yamuna Nagar, Haryana"
+              title="Map: United Precision Engineering Company, Industrial Area, Yamuna Nagar"
               className="block h-65 w-full border-0 md:h-85"
             />
           </div>

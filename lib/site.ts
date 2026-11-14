@@ -15,17 +15,21 @@ export const SITE = {
   tagline: "Passionate Performance!",
   description:
     "United Precision Engineering Company (UPEC), an affiliate of Polyplastics (India), is a specialized tool maker for high-gloss, high-aesthetics decorative automotive parts, including 2K, IMD, illumination and Kromex molds, from Yamuna Nagar, India.",
-  phone: "+91-99716-97292",
   email: "COO@UPEC.co.in",
   foundingDate: "1996-04",
   employees: 170,
   address: {
-    streetAddress: "Unit E-13, Industrial Area",
+    streetAddress: "E-13, Industrial Area",
     addressLocality: "Yamuna Nagar",
     addressRegion: "Haryana",
     postalCode: "135001",
     addressCountry: "IN",
   },
+  geo: { latitude: 30.1303932, longitude: 77.2781432 },
+  /** Google Maps listing for the plant */
+  mapUrl: "https://www.google.com/maps/place/United+Precision+Engineering+Company/@30.1303932,77.2781432,17z/data=!4m6!3m5!1s0x390ef9997fb6469d:0x7154a9fe9c24f28!8m2!3d30.1303932!4d77.2781432!16s%2Fg%2F11s9jl0fmc",
+  /** Map embed centred on the plant */
+  mapEmbedUrl: "https://maps.google.com/maps?q=United%20Precision%20Engineering%20Company%2C%20Yamuna%20Nagar&ll=30.1303932,77.2781432&z=16&output=embed",
   parentOrganization: "Polyplastics (India)",
   logo: "/assets/img/upec-logo.png",
   ogImage: "/og/og-default.jpg",

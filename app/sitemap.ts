@@ -43,7 +43,7 @@ const ROUTES: {
     path: "/media",
     priority: 0.6,
     changeFrequency: "monthly",
-    images: () => ["/og/media.jpg", photo("edm-electrode-sparking"), ...getGalleryPhotos().map((p) => p.src)],
+    images: () => ["/og/media.jpg", photo("edm-section-aisle"), ...getGalleryPhotos().map((p) => p.src)],
   },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly", images: () => ["/og/contact.jpg", photo("team-at-plant")] },
 ];

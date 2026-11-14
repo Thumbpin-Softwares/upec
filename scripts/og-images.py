@@ -15,7 +15,7 @@ PAGES = [
     ("about", "upec-team-2026", "About UPEC", "Decorative mold makers since 1996, 170+ strong"),
     ("what-we-do", "mold-trial-press", "What We Do", "Design, CAE, tool build, trials and delivery"),
     ("our-products", "wheel-cover-mold-assembly", "Our Products", "Molds for every decorative surface of the vehicle"),
-    ("media", "edm-electrode-sparking", "Media", "Corporate film and a look inside our plant"),
+    ("media", "edm-section-aisle", "Media", "Corporate film and a look inside our plant"),
     ("contact", "team-at-plant", "Contact Us", "Mold enquiries, supplier registration and careers"),
 ]
 

@@ -52,8 +52,8 @@ const PROCESS = [
 // Finished parts made from UPEC molds (from the Polyplastics "Products & Customers" slide)
 const PRODUCTS = [
   { src: "/assets/img/gallery/16-sample-room__delivered-decorative-parts.webp", alt: "Brand badges and emblems for MG, Royal Enfield, Suzuki, Tata and VW", title: "Brand Badges & Emblems" },
-  { src: "/assets/img/gallery/17-product-showcase__grilles-and-garnishes.webp", alt: "Chrome front grilles and garnishes for Tata, Suzuki and Toyota", title: "Grilles & Front Modules" },
-  { src: "/assets/img/products/range-wheels.webp", alt: "Decorative wheel covers in several finishes", title: "Wheel Covers & Decorations" },
+  { src: "/assets/img/products/range-grilles.webp", alt: "Chrome and gloss-black front grilles for Suzuki, Renault, Honda, Nissan, Chevrolet and Ford", title: "Grilles & Front Modules" },
+  { src: "/assets/img/products/range-wheels.webp", alt: "Decorative wheel covers for Tata and other OEMs in two-tone, carbon-look and painted finishes", contain: true, title: "Wheel Covers & Decorations" },
   { src: "/assets/img/products/range-other.webp", alt: "Chrome and painted decorative trim strips", title: "Other Decoratives" },
 ];
 

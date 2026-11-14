@@ -22,8 +22,8 @@ const row = "grid grid-cols-1 gap-4.5 lg:grid-cols-2";
 const PURPOSES = {
   inquiry: {
     label: "Inquiry",
-    name: "Full Name / Company Name",
-    namePlaceholder: "Your name or company",
+    name: "Full Name",
+    namePlaceholder: "Your full name",
     message: "Tell us about your parts, timelines and finish requirements",
   },
   career: {

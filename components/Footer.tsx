@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Year from "@/components/Year";
 import { container } from "@/components/ui";
+import { SITE } from "@/lib/site";
 
 const heading = "mb-4.5 text-[.95rem] uppercase tracking-[.06em] text-navy-800";
 // TODO: replace with the company's real profile URLs before publishing
@@ -58,9 +59,12 @@ export default function Footer() {
           <div>
             <h4 className={heading}>Get In Touch</h4>
             <ul className={list}>
-              <li><a href="tel:+919971697292">+91 99716 97292</a></li>
               <li><a href="mailto:COO@UPEC.co.in">COO@UPEC.co.in</a></li>
-              <li>Unit- E13, Industrial Area, Yamuna Nagar, 135001</li>
+              <li>
+                <a href={SITE.mapUrl} target="_blank" rel="noopener noreferrer">
+                  E-13, Industrial Area, Yamuna Nagar, 135001
+                </a>
+              </li>
             </ul>
             <ul className="mt-5 flex gap-2.5" aria-label="UPEC on social media">
               {SOCIALS.map(({ label, href, path }) => (

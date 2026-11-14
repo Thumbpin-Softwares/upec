@@ -177,15 +177,14 @@ export function CtaBanner({
         </div>
       </div>
 
-      {/* Photo side: hidden on phones, blends into the panel on the left edge */}
-      <div className="relative max-md:hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={image}
-          alt=""
-          className="absolute inset-0 size-full object-cover opacity-80 [mask-image:linear-gradient(to_right,transparent,black_65%)]"
-        />
-      </div>
+      {/* Photo: right ~60% of the banner (hidden on phones). A short fade on its left edge
+          blends it into the navy, leaving about half the banner as clear photo. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={image}
+        alt=""
+        className="absolute inset-y-0 right-0 -z-10 h-full w-[60%] object-cover max-md:hidden [mask-image:linear-gradient(to_right,transparent,black_30%)]"
+      />
     </div>
   );
 }

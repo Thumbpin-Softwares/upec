@@ -28,13 +28,8 @@ export default function Media() {
         title="Media"
         crumb="Media"
         lead="A look inside our plant, our engineering floor, and the decorative tooling we build."
-        image="/assets/img/photos/edm-electrode-sparking.webp"
+        image="/assets/img/photos/edm-section-aisle.webp"
       />
-
-      <Section>
-        <SectionHead eyebrow="Corporate Film" title="UPEC in motion" />
-        <VideoEmbed id="GekU2WH7bgs" title="UPEC corporate film" poster="/assets/img/photos/edm-twin-head.webp" />
-      </Section>
 
       <Section tone="grey">
         <SectionHead eyebrow="Photo Gallery" title="Inside our shop floor & engineering studio">
