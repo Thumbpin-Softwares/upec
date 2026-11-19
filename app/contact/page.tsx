@@ -85,7 +85,7 @@ export default function Contact() {
             </div>
 
             <div className="border-t border-white/8">
-              <ContactAction href="mailto:COO@UPEC.co.in" icon={<Mail />} label="Email" value="COO@UPEC.co.in" />
+              <ContactAction href={`mailto:${SITE.email}`} icon={<Mail />} label="Email" value={SITE.email} />
               <ContactAction href={SITE.mapUrl} external icon={<MapPin />} label="Visit" value="E-13, Industrial Area, Yamuna Nagar" />
             </div>
           </div>

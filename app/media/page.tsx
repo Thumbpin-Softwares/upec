@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import EventAlbums from "@/components/EventAlbums";
 import Gallery from "@/components/Gallery";
-import VideoEmbed from "@/components/VideoEmbed";
 import { getCelebrationGroups, getEventGroups, getGalleryPhotos } from "@/lib/images";
 import { CtaBanner, PageHeader, Section, SectionHead } from "@/components/ui";
 

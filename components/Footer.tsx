@@ -59,7 +59,7 @@ export default function Footer() {
           <div>
             <h4 className={heading}>Get In Touch</h4>
             <ul className={list}>
-              <li><a href="mailto:COO@UPEC.co.in">COO@UPEC.co.in</a></li>
+              <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li>
                 <a href={SITE.mapUrl} target="_blank" rel="noopener noreferrer">
                   E-13, Industrial Area, Yamuna Nagar, 135001

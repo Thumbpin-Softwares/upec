@@ -15,7 +15,8 @@ export const SITE = {
   tagline: "Passionate Performance!",
   description:
     "United Precision Engineering Company (UPEC), an affiliate of Polyplastics (India), is a specialized tool maker for high-gloss, high-aesthetics decorative automotive parts, including 2K, IMD, illumination and Kromex molds, from Yamuna Nagar, India.",
-  email: "COO@UPEC.co.in",
+  /** Public inbox; the contact and inquiry forms open a pre-filled email to it */
+  email: "info@upec.co.in",
   foundingDate: "1996-04",
   employees: 170,
   address: {

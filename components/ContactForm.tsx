@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent, type ReactNode } from "react";
 import { btn } from "@/components/ui";
+import { SITE } from "@/lib/site";
 
 const control =
   "w-full rounded-lg border-[1.5px] border-grey-200 bg-grey-100 px-3.75 py-3.25 text-[.95rem] transition-[border-color,background-color] focus:border-cyan-500 focus:bg-white focus:outline-none";
@@ -42,20 +43,40 @@ const PURPOSES = {
 
 type Purpose = keyof typeof PURPOSES;
 
+type Status = "idle" | "opened";
+
+/** mailto: link to the UPEC inbox with the form filled into the subject and body */
+function mailtoLink(form: HTMLFormElement, purpose: Purpose) {
+  const get = (key: string) => String(new FormData(form).get(key) ?? "").trim();
+  const { label, name: nameLabel } = PURPOSES[purpose];
+  const name = get("name");
+  const body = [
+    `Purpose: ${label}`,
+    `${nameLabel}: ${name}`,
+    `Email: ${get("email")}`,
+    `Phone: ${get("phone") || "Not given"}`,
+    "",
+    "Message:",
+    get("message"),
+  ].join("\n");
+  const subject = `Website ${label}: ${name}`;
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 /**
- * Front-end placeholder until connected to a backend / mail handler.
+ * Contact / inquiry form. The site is static (no server), so submitting opens the visitor's
+ * own email app with a message to the UPEC inbox already filled in; they press Send there.
  * `stacked` keeps every field full-width, for narrow containers like the inquiry drawer.
  */
 export default function ContactForm({ stacked }: { stacked?: boolean }) {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const [purpose, setPurpose] = useState<Purpose>("inquiry");
   const copy = PURPOSES[purpose];
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    e.currentTarget.reset();
-    setPurpose("inquiry");
+    window.location.href = mailtoLink(e.currentTarget, purpose);
+    setStatus("opened");
   };
 
   return (
@@ -105,11 +126,21 @@ export default function ContactForm({ stacked }: { stacked?: boolean }) {
       <button type="submit" className={`${btn("primary")} w-full`}>
         Send Message
       </button>
-      {sent && (
-        <div id="form-status" className="mt-3.5 text-[.92rem] font-semibold text-[#0f8b52]">
-          Thanks! Your message has been noted. Our team will get back to you shortly.
-        </div>
-      )}
+      <p className="mt-2.5 mb-0 text-center text-[.8rem] text-grey-600">
+        Opens your email app with your message ready to send to {SITE.email}.
+      </p>
+      <div id="form-status" role="status" aria-live="polite">
+        {status === "opened" && (
+          <p className="mt-3.5 mb-0 text-[.92rem] font-semibold text-[#0f8b52]">
+            Your email app should now be open with your message. Press Send there to reach us. If nothing opened,
+            email us at{" "}
+            <a href={`mailto:${SITE.email}`} className="underline">
+              {SITE.email}
+            </a>
+            .
+          </p>
+        )}
+      </div>
     </form>
   );
 }
