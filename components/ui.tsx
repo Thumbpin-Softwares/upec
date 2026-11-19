@@ -40,7 +40,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className={`py-11 sm:py-14 md:py-21 ${sectionTones[tone]}`}>
+    <section id={id} className={`scroll-mt-20 py-11 sm:py-14 md:py-21 ${sectionTones[tone]}`}>
       <div className={`${container} ${className}`}>{children}</div>
     </section>
   );

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getGalleryPhotos } from "@/lib/images";
+import { projectImage, SEGMENTS } from "@/lib/projects";
 import { abs } from "@/lib/site";
 
 const photo = (name: string) => `/assets/img/photos/${name}.webp`;
@@ -32,9 +33,8 @@ const ROUTES: {
     images: () => [
       "/og/our-products.jpg",
       photo("wheel-cover-mold-assembly"),
-      ...["badge", "front-facia", "rear-module", "side-door", "cockpit", "wheel", "accessories", "performance"].map(
-        (m) => `/assets/img/products/mold-${m}.webp`,
-      ),
+      ...SEGMENTS.map((s) => s.cover),
+      ...SEGMENTS.flatMap((s) => s.projects.flatMap((p) => [projectImage(p.slug, "mold"), projectImage(p.slug, "part")])),
     ],
   },
   { path: "/what-we-do", priority: 0.8, changeFrequency: "monthly", images: () => ["/og/what-we-do.jpg", photo("mold-trial-press")] },
