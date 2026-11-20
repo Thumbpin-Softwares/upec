@@ -25,18 +25,24 @@ const PURPOSES = {
     label: "Inquiry",
     name: "Full Name",
     namePlaceholder: "Your full name",
+    position: "Position",
+    positionPlaceholder: "e.g. Purchase Manager",
     message: "Tell us about your parts, timelines and finish requirements",
   },
   career: {
     label: "Career",
     name: "Full Name",
     namePlaceholder: "Your name",
+    position: "Position Applied For",
+    positionPlaceholder: "e.g. Mold Design Engineer",
     message: "Tell us about your experience and the role you're interested in",
   },
   supplier: {
     label: "Supplier",
     name: "Company Name",
     namePlaceholder: "Your company",
+    position: "Your Name & Position",
+    positionPlaceholder: "e.g. Rahul Sharma, Sales Head",
     message: "Tell us what you supply and the capabilities you offer",
   },
 } as const;
@@ -48,11 +54,12 @@ type Status = "idle" | "opened";
 /** mailto: link to the UPEC inbox with the form filled into the subject and body */
 function mailtoLink(form: HTMLFormElement, purpose: Purpose) {
   const get = (key: string) => String(new FormData(form).get(key) ?? "").trim();
-  const { label, name: nameLabel } = PURPOSES[purpose];
+  const { label, name: nameLabel, position: positionLabel } = PURPOSES[purpose];
   const name = get("name");
   const body = [
     `Purpose: ${label}`,
     `${nameLabel}: ${name}`,
+    `${positionLabel}: ${get("position") || "Not given"}`,
     `Email: ${get("email")}`,
     `Phone: ${get("phone") || "Not given"}`,
     "",
@@ -102,9 +109,14 @@ export default function ContactForm({ stacked }: { stacked?: boolean }) {
           ))}
         </div>
       </fieldset>
-      <Field id="name" label={copy.name}>
-        <input type="text" id="name" name="name" required placeholder={copy.namePlaceholder} className={control} />
-      </Field>
+      <div className={stacked ? "" : row}>
+        <Field id="name" label={copy.name}>
+          <input type="text" id="name" name="name" required autoComplete="name" placeholder={copy.namePlaceholder} className={control} />
+        </Field>
+        <Field id="position" label={copy.position}>
+          <input type="text" id="position" name="position" autoComplete="organization-title" placeholder={copy.positionPlaceholder} className={control} />
+        </Field>
+      </div>
       <div className={stacked ? "" : row}>
         <Field id="email" label="Email">
           <input type="email" id="email" name="email" required placeholder="you@company.com" className={control} />
