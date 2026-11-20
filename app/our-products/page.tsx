@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowDown } from "lucide-react";
 import { pageMetadata } from "@/lib/site";
 import { projectImage, SEGMENTS, type Project, type Segment } from "@/lib/projects";
-import { CtaBanner, Eyebrow, PageHeader, ProductCard, Section, SectionHead, TagCloud } from "@/components/ui";
+import { CtaBanner, Eyebrow, PageHeader, Section, SectionHead, TagCloud } from "@/components/ui";
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Products: Decorative Automotive Molds",
@@ -81,14 +81,30 @@ export default function OurProducts() {
         <SectionHead eyebrow="Vehicle Segment Wise" title="What we tool, segment by segment">
           Pick a segment to see the molds we have built for it.
         </SectionHead>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6.5 lg:grid-cols-4">
-          {SEGMENTS.map((s) => (
-            <a key={s.id} href={`#${s.id}`} className="group block rounded-card focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-500">
-              <ProductCard src={s.cover} alt={s.coverAlt} contain title={s.title} />
-              <span className="sr-only">: see projects</span>
-            </a>
-          ))}
-        </div>
+        {/* Jump links to each segment: a radio-style dot fills in on hover / focus */}
+        <nav aria-label="Vehicle segments">
+          <ul className="reveal m-0 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 lg:grid-cols-4">
+            {SEGMENTS.map((s, i) => (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  className="group flex h-full items-center gap-3.5 rounded-card border border-grey-200 bg-white px-4.5 py-4 transition-[border-color,box-shadow,translate] duration-200 hover:-translate-y-0.5 hover:border-cyan-500 hover:shadow-md focus-visible:border-cyan-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="flex size-5 flex-none items-center justify-center rounded-full border-2 border-grey-400 transition-colors group-hover:border-cyan-500 group-focus-visible:border-cyan-500"
+                  >
+                    <span className="size-2.5 scale-0 rounded-full bg-cyan-500 transition-transform duration-200 group-hover:scale-100 group-focus-visible:scale-100" />
+                  </span>
+                  <span className="min-w-0 flex-1 text-[.95rem] leading-snug font-semibold text-navy-800">{s.title}</span>
+                  <span className="flex-none text-[.72rem] font-semibold text-grey-600 tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <p className="mt-6 mb-0 flex items-center justify-center gap-2 text-[.85rem] text-grey-600">
           <ArrowDown className="size-4 text-cyan-500" />
           {SEGMENTS.reduce((n, s) => n + s.projects.length, 0)} mold projects across {SEGMENTS.length} segments below

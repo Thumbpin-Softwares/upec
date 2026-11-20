@@ -33,7 +33,6 @@ const ROUTES: {
     images: () => [
       "/og/our-products.jpg",
       photo("wheel-cover-mold-assembly"),
-      ...SEGMENTS.map((s) => s.cover),
       ...SEGMENTS.flatMap((s) => s.projects.flatMap((p) => [projectImage(p.slug, "mold"), projectImage(p.slug, "part")])),
     ],
   },
